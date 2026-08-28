@@ -2,13 +2,18 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class player : MonoBehaviour
 {
-    [SerializeField] private bool isInWater = false;
+    [SerializeField] bool isInWater = false;
     [SerializeField] private float speed = 5.0f;
     public Vector2 moveInput;
     public Vector2 viewInput;
-    [SerializeField] private GameObject camera;
+    private float camPitch;
+    [SerializeField] private GameObject playerCamera;
     private bool freezePlayer = false;  
     [SerializeField] private playerUI playerUI; // Reference to the playerUI script
+    [SerializeField] private float oxygen = 100f;
+    [SerializeField] private int maxOxygen = 100; // Maximum oxygen level
+    bool freezeCam = false;
+
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
@@ -16,7 +21,14 @@ public class player : MonoBehaviour
     void OnLook(InputValue value)
     {
         viewInput = value.Get<Vector2>();
+        viewInput *= 0.3f; // Adjust sensitivity as needed
     }
+    //void for changing oxygen level without going above max or below 0.
+    void ChangeOxygen(float amount)
+    {
+        oxygen = Mathf.Clamp(oxygen + amount, 0f, maxOxygen);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,7 +43,7 @@ public class player : MonoBehaviour
         {
             
         }
-        
+        freezeCam = playerUI.ShowUI;
 
 
     }
@@ -43,8 +55,8 @@ public class player : MonoBehaviour
         {
             // Apply water physics
             // For example, reduce gravity
-                rb.AddForce(Vector3.down * 2.0f); // Reduced gravity force in water
-
+                rb.AddForce(Vector3.down * 2.0f); // Reduced gravity force in water 
+                // idea ... new Vector3(Camera.transform.forward.x, 0f, Camera.transform.forward.z).normalized;
         }
        
        
@@ -59,10 +71,14 @@ public class player : MonoBehaviour
             rb.AddForce(moveDirection.normalized * speed, ForceMode.Force);
 
         }
-        if (camera != null)
+        if(!freezeCam) //camera system
         {
             // Rotate the camera based on view input
-            camera.transform.Rotate(-viewInput.y, viewInput.x, 0);
+            gameObject.transform.Rotate(0f, viewInput.x, 0f);
+            
+            camPitch -= viewInput.y;
+            camPitch = Mathf.Clamp(camPitch, -80f, 75f);
+            playerCamera.transform.localRotation = Quaternion.Euler(camPitch, 0f, 0f);
         }
 
 
