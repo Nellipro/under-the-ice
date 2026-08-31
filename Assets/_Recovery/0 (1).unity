@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf789f7dcc7438c4da4c568733218eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LampsSystem
+  lightSorce: {fileID: 1408652066}
 --- !u!1 &125324344
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,12 +372,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcd4877a4d582a499569725cad2e11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchSwitchSystem
+  leverHandle: {fileID: 0}
   rotationAxis: {x: 1, y: 0, z: 0}
   upAngle: -35
   downAngle: 35
   moveSpeed: 8
   value: 0
-  switchObject: {fileID: 0}
+  interactsWith: []
 --- !u!1 &211396723
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,12 +595,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcd4877a4d582a499569725cad2e11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchSwitchSystem
+  leverHandle: {fileID: 0}
   rotationAxis: {x: 1, y: 0, z: 0}
   upAngle: -35
   downAngle: 35
   moveSpeed: 8
   value: 0
-  switchObject: {fileID: 0}
+  interactsWith: []
 --- !u!1 &341766549
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,12 +728,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcd4877a4d582a499569725cad2e11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchSwitchSystem
+  leverHandle: {fileID: 0}
   rotationAxis: {x: 1, y: 0, z: 0}
   upAngle: -35
   downAngle: 35
   moveSpeed: 8
   value: 0
-  switchObject: {fileID: 0}
+  interactsWith: []
 --- !u!1 &442023968
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,7 +744,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 442023969}
-  - component: {fileID: 442023970}
   m_Layer: 0
   m_Name: MainLamps
   m_TagString: Untagged
@@ -766,20 +769,6 @@ Transform:
   - {fileID: 123283920}
   m_Father: {fileID: 907830987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &442023970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442023968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f2a681792d91048bf43411b4692ba1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwitchObject
-  isOn: 0
-  costPerSecond: 1
 --- !u!1 &450533559
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,12 +985,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcd4877a4d582a499569725cad2e11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchSwitchSystem
+  leverHandle: {fileID: 0}
   rotationAxis: {x: 1, y: 0, z: 0}
   upAngle: -35
   downAngle: 35
   moveSpeed: 8
   value: 0
-  switchObject: {fileID: 0}
+  interactsWith: []
 --- !u!1 &497279721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,12 +1040,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac711a8d06b70b44a53f0d2e3056e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchSwitchHoldSystem
+  leverHandle: {fileID: 497279722}
   rotationAxis: {x: 1, y: 0, z: 0}
   upAngle: -35
   downAngle: 35
   moveSpeed: 8
   value: 0
-  switchObject: {fileID: 0}
 --- !u!65 &497279724
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1294,12 +1284,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5396be46237c493409988f49061d46ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchPullSystem
+  leverHandle: {fileID: 605524233}
   movementAxis: {x: 0, y: 1, z: 0}
   upDistance: -1
   downDistance: 1
   moveSpeed: 8
   value: 0
-  switchObject: {fileID: 0}
 --- !u!65 &605524235
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1739,12 +1729,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcd4877a4d582a499569725cad2e11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchSwitchSystem
+  leverHandle: {fileID: 0}
   rotationAxis: {x: 1, y: 0, z: 0}
   upAngle: -35
   downAngle: 35
   moveSpeed: 8
   value: 0
-  switchObject: {fileID: 0}
+  interactsWith: []
 --- !u!1 &931852705
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,13 +2036,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b5f922f7df47f48a438dbc406d653f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchRotateSystem
+  leverHandle: {fileID: 969518356}
   rotationAxis: {x: 1, y: 0, z: 0}
   upAngle: -45
   downAngle: 45
   moveSpeed: 8
   rayAngleOffset: 0
   value: 0
-  switchObject: {fileID: 0}
 --- !u!135 &969518362
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2910,6 +2901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf789f7dcc7438c4da4c568733218eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LampsSystem
+  lightSorce: {fileID: 1792696733}
 --- !u!1 &1327338711
 GameObject:
   m_ObjectHideFlags: 0
@@ -3036,12 +3028,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcd4877a4d582a499569725cad2e11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchSwitchSystem
+  leverHandle: {fileID: 0}
   rotationAxis: {x: 1, y: 0, z: 0}
   upAngle: -35
   downAngle: 35
   moveSpeed: 8
   value: 0
-  switchObject: {fileID: 0}
+  interactsWith: []
 --- !u!1 &1385827282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3666,6 +3659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf789f7dcc7438c4da4c568733218eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LampsSystem
+  lightSorce: {fileID: 1216944673}
 --- !u!1 &1562563433
 GameObject:
   m_ObjectHideFlags: 0
@@ -3792,12 +3786,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcd4877a4d582a499569725cad2e11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchSwitchSystem
+  leverHandle: {fileID: 1562563437}
   rotationAxis: {x: 1, y: 0, z: 0}
   upAngle: -35
   downAngle: 35
   moveSpeed: 8
   value: 0
-  switchObject: {fileID: 0}
+  interactsWith: []
 --- !u!1 &1631547299
 GameObject:
   m_ObjectHideFlags: 0
@@ -3807,7 +3802,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1631547300}
-  - component: {fileID: 1631547302}
+  - component: {fileID: 1631547301}
   m_Layer: 0
   m_Name: ElecBox
   m_TagString: Untagged
@@ -3841,7 +3836,7 @@ Transform:
   - {fileID: 603294875}
   m_Father: {fileID: 952321940}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1631547302
+--- !u!114 &1631547301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3850,13 +3845,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1631547299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92abd1ece9925e148afcbd9a1daa52ab, type: 3}
+  m_Script: {fileID: 11500000, guid: c197bbaca9367da41a4d852033cb5454, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestSwitchBox
-  switchObjects:
-  - {fileID: 442023970}
-  currentPowerUse: 0
-  maxPowerUse: 5
+  m_EditorClassIdentifier: Assembly-CSharp::ElecBoxSystem
+  switches:
+  - {fileID: 1971357804}
+  - {fileID: 916719493}
+  - {fileID: 125324344}
+  - {fileID: 340617199}
+  - {fileID: 2066915098}
+  - {fileID: 473060710}
+  - {fileID: 1676289434}
+  - {fileID: 341766549}
+  - {fileID: 1327338711}
+  switchValues: []
+  alarmObject: {fileID: 603294874}
+  alarmTimer: 0
+  maxAlarmTime: 1
+  allValues: 0
+  maxValues: 5
+  breakTimer: 0
+  maxBreakTime: 30
 --- !u!1 &1669504918
 GameObject:
   m_ObjectHideFlags: 0
@@ -4096,12 +4105,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcd4877a4d582a499569725cad2e11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchSwitchSystem
+  leverHandle: {fileID: 0}
   rotationAxis: {x: 1, y: 0, z: 0}
   upAngle: -35
   downAngle: 35
   moveSpeed: 8
   value: 0
-  switchObject: {fileID: 0}
+  interactsWith: []
 --- !u!1 &1703414165
 GameObject:
   m_ObjectHideFlags: 0
@@ -4831,12 +4841,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcd4877a4d582a499569725cad2e11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchSwitchSystem
+  leverHandle: {fileID: 0}
   rotationAxis: {x: 1, y: 0, z: 0}
   upAngle: -35
   downAngle: 35
   moveSpeed: 8
   value: 0
-  switchObject: {fileID: 442023970}
+  interactsWith:
+  - {fileID: 1311931020}
+  - {fileID: 1460813897}
+  - {fileID: 123283919}
 --- !u!1 &1977256304
 GameObject:
   m_ObjectHideFlags: 0
@@ -5446,12 +5460,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcd4877a4d582a499569725cad2e11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwitchSwitchSystem
+  leverHandle: {fileID: 0}
   rotationAxis: {x: 1, y: 0, z: 0}
   upAngle: -35
   downAngle: 35
   moveSpeed: 8
   value: 0
-  switchObject: {fileID: 0}
+  interactsWith: []
 --- !u!1 &2090605872
 GameObject:
   m_ObjectHideFlags: 0

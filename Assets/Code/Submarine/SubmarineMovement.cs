@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class SubmarineMovement : MonoBehaviour
 {
 
     public Transform thisShip;
     public Rigidbody rb;
+    public SwitchPullSystem switchPullSystem;
 
     [Header("Movement Settings")]
     public  float turnSpeed = 60f;
@@ -17,6 +19,7 @@ public class SubmarineMovement : MonoBehaviour
     private float yaw;
     private float pitch;
     private float roll;
+    private float thrustValue;
     
     void Start()
     {
@@ -26,8 +29,8 @@ public class SubmarineMovement : MonoBehaviour
 
     void Update()
     {
-        turn();
-        thrust();
+        //turn();
+        //thrust();
     }
 
     void turn()
@@ -40,6 +43,7 @@ public class SubmarineMovement : MonoBehaviour
 
     void thrust()
     {
-        rb.AddForce(thisShip.forward * thrustSpeed * Input.GetAxis("Throttle"));
+        thrustValue = switchPullSystem.value;
+        rb.AddForce(thisShip.forward * thrustSpeed * thrustValue);
     }
 }
