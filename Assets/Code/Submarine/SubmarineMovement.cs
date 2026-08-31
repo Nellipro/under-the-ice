@@ -6,7 +6,8 @@ public class SubmarineMovement : MonoBehaviour
 
     public Transform thisShip;
     public Rigidbody rb;
-    public SwitchPullSystem switchPullSystem;
+    public SwitchPullSystem throttleLever;
+    public SwitchRotateSystem yawLever;
 
     [Header("Movement Settings")]
     public  float turnSpeed = 60f;
@@ -27,23 +28,26 @@ public class SubmarineMovement : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
-        //turn();
-        //thrust();
+        turn();
+        thrust();
     }
 
     void turn()
     {
-        yaw = turnSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
-        pitch = turnSpeed * Time.deltaTime * Input.GetAxis("Vertical");
-        roll = turnSpeed * Time.deltaTime * Input.GetAxis("Rotate");
+        float Y = yawLever.value;
+
+
+        yaw = turnSpeed * Y;
+        //pitch = turnSpeed * Time.deltaTime * Input.GetAxis("Vertical");
+        //roll = turnSpeed * Time.deltaTime * Input.GetAxis("Rotate");
         thisShip.Rotate(pitch, yaw, roll);
     }
 
     void thrust()
     {
-        thrustValue = switchPullSystem.value;
-        rb.AddForce(thisShip.forward * thrustSpeed * thrustValue);
+        thrustValue = throttleLever.value;
+        rb.AddForce(thisShip.forward * thrustSpeed * (thrustValue * 100));
     }
 }

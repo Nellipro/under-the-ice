@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 9085866398024829026}
   - component: {fileID: 5502077674321008682}
   - component: {fileID: 2128704884559743131}
-  m_Layer: 0
+  - component: {fileID: 5074752987161399806}
+  m_Layer: 3
   m_Name: alphaPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +128,7 @@ Rigidbody:
   m_GameObject: {fileID: 2247546656597089575}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 1
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -162,9 +163,10 @@ MonoBehaviour:
   moveInput: {x: 0, y: 0}
   viewInput: {x: 0, y: 0}
   playerCamera: {fileID: 9073648382569994046}
-  playerUI: {fileID: 0}
+  playerUI: {fileID: 2720302361744033874}
   oxygen: 100
   maxOxygen: 100
+  camSens: 0.1
 --- !u!114 &2128704884559743131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +197,23 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1859053861426811779}
+--- !u!114 &5074752987161399806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247546656597089575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7325e8ccab6041f4d86f45fef4b2be09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractSystem
+  InteractSource: {fileID: 8920813645586546957}
+  InteractRange: 50
+  InteractLayers:
+    serializedVersion: 2
+    m_Bits: 55
 --- !u!1 &9073648382569994046
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +228,7 @@ GameObject:
   - component: {fileID: 7597916342757284814}
   - component: {fileID: 2720302361744033874}
   - component: {fileID: 3583773141601178621}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
