@@ -2,18 +2,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class playerUI : MonoBehaviour
 {
-        [SerializeField] private GameObject UICanvas;
+    [SerializeField] private GameObject UICanvas;
     [SerializeField] private bool showEscapeMenu = false;
 
     public bool ShowUI => showEscapeMenu; // Public property to access ShowUI
     
     public bool DebugInfoShown = false;
     [SerializeField] private GameObject DebugInfo;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
     void OnDebug(InputValue value)
     {
         DebugInfoShown = !DebugInfoShown;
@@ -41,6 +36,7 @@ public class playerUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
     }
     void PauseGame()
     {
