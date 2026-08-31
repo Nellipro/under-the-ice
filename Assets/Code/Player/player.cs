@@ -14,6 +14,8 @@ public class player : MonoBehaviour
     [SerializeField] private int maxOxygen = 100; // Maximum oxygen level
     bool freezeCam = false;
 
+    public float camSens;
+
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
@@ -21,7 +23,7 @@ public class player : MonoBehaviour
     void OnLook(InputValue value)
     {
         viewInput = value.Get<Vector2>();
-        viewInput *= 0.3f; // Adjust sensitivity as needed
+        viewInput *= camSens; // Adjust sensitivity as needed
     }
     //void for changing oxygen level without going above max or below 0.
     void ChangeOxygen(float amount)

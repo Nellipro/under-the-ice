@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "under-the-ice.slnx"
+    "dotnet.defaultSolution": "under the ice.slnx"
 }
