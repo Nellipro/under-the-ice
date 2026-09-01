@@ -11,13 +11,16 @@ public class SwitchObject : MonoBehaviour
     [Header("What Am i?")]
     public bool isLamp;
     public bool isDoor;
+    public bool isEngine;
 
     [Header("for door")]
     public Transform openPos;
     public Transform closedPos;
     public float moveSpeed = 8f;
-
     private Transform target;
+
+    [Header("for Engine")]
+    public SubmarineMovement submarine;
 
 
 
@@ -47,12 +50,22 @@ public class SwitchObject : MonoBehaviour
             {
                 target = openPos.transform;
             }
+
+            if(isEngine)
+            {
+                submarine.isActive = true;
+            }
         }
         else
         {
             if(isDoor)
             {
                target = closedPos.transform;
+            }
+
+            if(isEngine)
+            {
+                submarine.isActive = false;
             }
         }
 
