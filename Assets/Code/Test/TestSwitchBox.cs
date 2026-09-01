@@ -4,15 +4,33 @@ using UnityEngine;
 public class TestSwitchBox : MonoBehaviour
 {
     public SwitchObject[] switchObjects;
+    public SwitchSwitchSystem[] switches;
     public float currentPowerUse;
     public float maxPowerUse = 5;
+    public float maxTimeTimer = 0;
+    public float timer = 0f;
+
+
+
+    void Awake()
+    {
+        timer = 0;
+    }
 
     void Update()
     {
         CalculateUpkeep();
+
         if(currentPowerUse >= maxPowerUse)
         {
-            ShutDownAllSwitchableObjects();
+            timer += Time.deltaTime;
+
+            if (timer >= maxTimeTimer)
+            {
+                ShutDownAllSwitchableObjects();
+
+                timer = 0;
+            }
         }
     }
 
@@ -35,6 +53,11 @@ public class TestSwitchBox : MonoBehaviour
         foreach(SwitchObject s in switchObjects)
         {
             s.ToggleObject(false);
+        }
+
+        foreach(SwitchSwitchSystem s in switches)
+        {
+            s.TurnOff();
         }
     }
 
