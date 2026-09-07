@@ -57,7 +57,7 @@ public class player : MonoBehaviour
         {
             // Apply water physics
             // For example, reduce gravity
-                rb.AddForce(Vector3.down * 2.0f); // Reduced gravity force in water 
+                rb.AddForce(-(Vector3.down * 2.0f)); // Reduced gravity force in water 
                 // idea ... new Vector3(Camera.transform.forward.x, 0f, Camera.transform.forward.z).normalized;
         }
        
@@ -66,7 +66,7 @@ public class player : MonoBehaviour
         if (!isInWater)
         {
             // Apply normal physics
-            rb.AddForce(Vector3.down * 9.81f); // Normal gravity force
+            // rb.AddForce(Vector3.down * 9.81f); // Normal gravity force
             
             Vector3 moveDirection = transform.right * moveInput.x + transform.forward * moveInput.y;
             

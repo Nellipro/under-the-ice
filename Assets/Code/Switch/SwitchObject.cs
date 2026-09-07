@@ -12,8 +12,9 @@ public class SwitchObject : MonoBehaviour
     public bool isLamp;
     public bool isDoor;
     public bool isEngine;
+    public bool isBlastShield;
 
-    [Header("for door")]
+    [Header("for door and blastshield")]
     public Transform openPos;
     public Transform closedPos;
     public float moveSpeed = 8f;
@@ -21,6 +22,12 @@ public class SwitchObject : MonoBehaviour
 
     [Header("for Engine")]
     public SubmarineMovement submarine;
+
+    [Header("for BlastsShield")]
+    public float rotationSpeed = 90f;
+
+
+
 
 
 
@@ -31,6 +38,10 @@ public class SwitchObject : MonoBehaviour
             vector3Object = gameObject.transform.position;
             target = closedPos.transform;
         }
+        if (isBlastShield)
+        {
+            isDoor = true;
+        }
     }
 
     void Update()
@@ -39,6 +50,12 @@ public class SwitchObject : MonoBehaviour
         {
             float step =  moveSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        }
+
+        if (isBlastShield)
+        {
+            float step = rotationSpeed * Time.deltaTime;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation,target.rotation,step);
         }
     }
 

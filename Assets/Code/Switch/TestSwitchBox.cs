@@ -1,20 +1,25 @@
 using System.Diagnostics;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class TestSwitchBox : MonoBehaviour
 {
     public SwitchObject[] switchObjects;
     public SwitchSwitchSystem[] switches;
+    public GameObject alarmLamp;
     public float currentPowerUse;
-    public float maxPowerUse = 5;
-    public float maxTimeTimer = 0;
-    public float timer = 0f;
+    public float maxPowerUse;
+    public float maxTimeTimer;
+    public float timer;
+    public float alarmBlinkSpeed;
+    private float setBS;
 
 
 
     void Awake()
     {
         timer = 0;
+        setBS = alarmBlinkSpeed;
     }
 
     void Update()
@@ -25,12 +30,23 @@ public class TestSwitchBox : MonoBehaviour
         {
             timer += Time.deltaTime;
 
+            if (timer >= alarmBlinkSpeed)
+            {
+                alarmLamp.SetActive(true);
+                // alarmBlinkSpeed += 1f;
+            }
+
             if (timer >= maxTimeTimer)
             {
-                ShutDownAllSwitchableObjects();
-
+                ShutDownAllSwitchableObjects();             
                 timer = 0;
             }
+        }
+
+        if(currentPowerUse <= maxPowerUse)
+        {
+            alarmLamp.SetActive(false);
+            alarmBlinkSpeed = setBS;
         }
     }
 

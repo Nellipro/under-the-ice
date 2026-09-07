@@ -80,13 +80,14 @@ public class ElecBoxSystem : MonoBehaviour
         if (allValues >= maxValues)
         {
             breakTimer += Time.deltaTime * ((allValues - maxValues) + 1);
-            alarmTimer += Time.deltaTime;
+            alarmTimer += Time.deltaTime / 4;
+
             if (alarmTimer >= maxAlarmTime)
             {
                 alarmObject.SetActive(true);
                 alarmTimer = 0;
             }
-            else if (alarmTimer >= maxAlarmTime * 0.5f)
+            else if (alarmTimer <= maxAlarmTime)
             {
                 alarmObject.SetActive(false);
             }
@@ -123,7 +124,6 @@ public class ElecBoxSystem : MonoBehaviour
 
     void PoweringOnAndOf()
     {
-        float number = 0f;
         foreach (GameObject switchObject in switches)
         {
             if (switchObject != null)
@@ -133,17 +133,5 @@ public class ElecBoxSystem : MonoBehaviour
 
             }
         }
-
-        for (int switchIndex = 0; switchIndex < switches.Length; switchIndex++)
-        {
-            GameObject switchObject = switches[switchIndex];
-
-            
-            // if (number = switches[switchIndex])
-            // {
-            
-            // }
-        }   
-
     }
 }

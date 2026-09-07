@@ -15,7 +15,7 @@ public class SwitchSwitchSystem : MonoBehaviour, IInteractible
     public float value = 0;
 
     [Header("the switchObject")]
-    public SwitchObject switchObject;
+    public SwitchObject[] switchObject;
 /////////////////////////////////////////
     public float Value => value;
     void Awake()
@@ -35,20 +35,23 @@ public class SwitchSwitchSystem : MonoBehaviour, IInteractible
         Quaternion targetRotation = startRotation * Quaternion.AngleAxis(targetAngle, rotationAxis.normalized);
         leverHandle.localRotation = Quaternion.Slerp(leverHandle.localRotation, targetRotation, moveSpeed * Time.deltaTime);
 
-        if (isDown)
+        foreach (SwitchObject s in switchObject)
         {
-            value = 1;
-            if (switchObject != null)
+            if (isDown)
             {
-                switchObject.ToggleObject(true);
-            }    
-        }
-        else if (!isDown)
-        {
-            value = 0;
-            if (switchObject != null)
+                value = 1;
+                if (switchObject != null)
+                {
+                    s.ToggleObject(true);
+                }    
+            }
+            else if (!isDown)
             {
-                switchObject.ToggleObject(false);
+                value = 0;
+                if (switchObject != null)
+                {
+                    s.ToggleObject(false);
+                }
             }
         }
     }

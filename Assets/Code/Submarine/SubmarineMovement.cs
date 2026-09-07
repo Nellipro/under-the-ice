@@ -24,9 +24,20 @@ public class SubmarineMovement : MonoBehaviour
     private float backwardValue;
     private float upValue;
     private float downValue;
-
     public float stabilizationForce;
-    
+
+    [Header("sub carry system")]
+    public Rigidbody submarineRb;
+    public Rigidbody playerRb;
+    private Vector3 lastPosition;
+    private Quaternion lastRotation;
+
+    private void Awake()
+    {
+        lastPosition = submarineRb.position;
+        lastRotation = submarineRb.rotation;
+    }
+
     void Start()
     {
         isActive = false;
@@ -47,7 +58,8 @@ public class SubmarineMovement : MonoBehaviour
                 if (Mathf.Abs(leftLever.value) + Mathf.Abs(rightLever.value) < 0.1f)
                 {
                     Stabilize();
-                }               
+                }
+               
             }
         }
     }
@@ -84,7 +96,10 @@ public class SubmarineMovement : MonoBehaviour
         if (currentRotation.x > 180) currentRotation.x -= 360;
         if (currentRotation.z > 180) currentRotation.z -= 360;
 
-            rb.AddTorque(-currentRotation.x * stabilizationForce, 0, 0);       
+        if (Mathf.Abs(upLever.value) + Mathf.Abs(downLever.value) < 0.1f)
+            rb.AddTorque(-currentRotation.x * stabilizationForce, 0, 0);
+        
+        if (Mathf.Abs(leftLever.value) + Mathf.Abs(rightLever.value) < 0.1f)
             rb.AddTorque(0, 0, -currentRotation.z * stabilizationForce);
     }
 }
