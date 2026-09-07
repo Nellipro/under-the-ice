@@ -13640,10 +13640,6 @@ PrefabInstance:
       propertyPath: 'switchObjects.Array.data[1]'
       value: 
       objectReference: {fileID: 501368137}
-    - target: {fileID: 6520121821640072828, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
-      propertyPath: thrustSpeed
-      value: 220
-      objectReference: {fileID: 0}
     - target: {fileID: 7475271270926296006, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
       propertyPath: m_LocalScale.y
       value: 9.351754
