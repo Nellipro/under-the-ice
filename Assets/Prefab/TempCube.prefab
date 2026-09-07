@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 416793725053815183}
   - component: {fileID: 1587200498059632808}
   - component: {fileID: 5935463405575640816}
+  - component: {fileID: 3163018261491884245}
   m_Layer: 0
   m_Name: TempCube
   m_TagString: Untagged
@@ -113,6 +114,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3163018261491884245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3029107764792796181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dcd4877a4d582a499569725cad2e11a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwitchSwitchSystem
+  rotationAxis: {x: 1, y: 0, z: 0}
+  upAngle: -35
+  downAngle: 35
+  moveSpeed: 8
+  value: 0
+  switchObject: []
 --- !u!1 &6189303349393212352
 GameObject:
   m_ObjectHideFlags: 0

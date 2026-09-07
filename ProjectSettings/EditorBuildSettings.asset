@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/nya.unity
     guid: 4bac887159f04d346a80e1f775ec48cb
   - enabled: 1

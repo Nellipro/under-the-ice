@@ -13,6 +13,7 @@ public class SwitchObject : MonoBehaviour
     public bool isDoor;
     public bool isEngine;
     public bool isBlastShield;
+    public bool isReactor;
 
     [Header("for door and blastshield")]
     public Transform openPos;
@@ -25,6 +26,9 @@ public class SwitchObject : MonoBehaviour
 
     [Header("for BlastsShield")]
     public float rotationSpeed = 90f;
+
+    [Header("for Reactor")]
+    public Reactor reactor;
 
 
 
@@ -72,6 +76,12 @@ public class SwitchObject : MonoBehaviour
             {
                 submarine.isActive = true;
             }
+
+            if(isReactor)
+            {
+                reactor.overLoaded = true;
+            }
+            
         }
         else
         {

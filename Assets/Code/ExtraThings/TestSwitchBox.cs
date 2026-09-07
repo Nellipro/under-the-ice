@@ -12,14 +12,14 @@ public class TestSwitchBox : MonoBehaviour
     public float maxTimeTimer;
     public float timer;
     public float alarmBlinkSpeed;
-    private float setBS;
+    public float alarmBlinkTimer;
+    bool alarmOn;
 
 
 
     void Awake()
     {
         timer = 0;
-        setBS = alarmBlinkSpeed;
     }
 
     void Update()
@@ -29,11 +29,20 @@ public class TestSwitchBox : MonoBehaviour
         if(currentPowerUse >= maxPowerUse)
         {
             timer += Time.deltaTime;
+            alarmBlinkTimer += Time.deltaTime * 10;
 
-            if (timer >= alarmBlinkSpeed)
+            if (alarmBlinkTimer >= alarmBlinkSpeed & !alarmOn)
             {
                 alarmLamp.SetActive(true);
-                // alarmBlinkSpeed += 1f;
+                alarmBlinkTimer = 0;
+                alarmOn = !alarmOn;
+
+            }
+            if (alarmBlinkTimer >= alarmBlinkSpeed & alarmOn)
+            {
+                alarmLamp.SetActive(false);
+                alarmBlinkTimer = 0;
+                alarmOn = !alarmOn;
             }
 
             if (timer >= maxTimeTimer)
@@ -46,7 +55,8 @@ public class TestSwitchBox : MonoBehaviour
         if(currentPowerUse <= maxPowerUse)
         {
             alarmLamp.SetActive(false);
-            alarmBlinkSpeed = setBS;
+
+ 
         }
     }
 
