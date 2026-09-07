@@ -2,8 +2,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class playerUI : MonoBehaviour
 {
-    [SerializeField] private GameObject UICanvas;
     [SerializeField] private bool showEscapeMenu = false;
+    [SerializeField] private GameObject EscapeMenu;
 
     public bool ShowUI => showEscapeMenu; // Public property to access ShowUI
     
@@ -17,8 +17,6 @@ public class playerUI : MonoBehaviour
     void OnEscape(InputValue value)
     {
         showEscapeMenu = !showEscapeMenu;
-        UICanvas.SetActive(showEscapeMenu);
-
     }
     // Update is called once per frame
     void Update()
@@ -37,10 +35,13 @@ public class playerUI : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
+        EscapeMenu.SetActive(false);
     }
     void PauseGame()
     {
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
+        EscapeMenu.SetActive(true);
+
     }
 }
