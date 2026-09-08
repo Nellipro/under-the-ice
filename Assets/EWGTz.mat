@@ -26,11 +26,11 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _BlurDirection_1: 0.1
-    - _BlurDirection_2: 0.1
+    - _BlurDirection_1: 0.028
+    - _BlurDirection_2: 0.026
     - _BlurDirection_3: 1
     - _BlurDirection_4: 1
-    - _strength: 1.94
+    - _strength: 1
     m_Colors:
     - _BlurDir: {r: 0.01, g: 0.01, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EWGTz 1
-  m_Shader: {fileID: -6465566751694194690, guid: ea5d2e4a1cc8e4144bb447715d05412e, type: 3}
-  m_Parent: {fileID: -876546973899608171, guid: ea5d2e4a1cc8e4144bb447715d05412e, type: 3}
+  m_Name: '`wdceGJVgh'
+  m_Shader: {fileID: -6465566751694194690, guid: c25c7dad61048404da8b7be3b4ba080a, type: 3}
+  m_Parent: {fileID: -876546973899608171, guid: c25c7dad61048404da8b7be3b4ba080a, type: 3}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -26,16 +26,13 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _BlurDirection_1: 0.03
-    - _BlurDirection_2: 0
-    - _BlurDirection_3: 1
-    - _BlurDirection_4: 1
-    - _strength: 1
-    m_Colors:
-    - _BlurDir: {r: 0.01, g: 0.01, b: 0, a: 0}
+    - _BlurDirection_1: 0.02
+    - _BlurDirection_2: 0.02
+    - _MiddleStrength: 2
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6857901116454506787
+--- !u!114 &5872562214411542489
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
