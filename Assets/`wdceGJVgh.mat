@@ -26,9 +26,9 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _BlurDirection_1: 0.02
-    - _BlurDirection_2: 0.02
-    - _MiddleStrength: 2
+    - _BlurDirection_1: 0.013
+    - _BlurDirection_2: 0.013
+    - _MiddleStrength: 0
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
