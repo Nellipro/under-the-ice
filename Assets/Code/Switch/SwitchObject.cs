@@ -1,3 +1,4 @@
+using System.Data.Common;
 using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,10 +11,12 @@ public class SwitchObject : MonoBehaviour
 
     [Header("What Am i?")]
     public bool isLamp;
-    public bool isDoor;
+    public bool isDoor_AlsoForAirLock;
+    public bool isDoorReverst;
     public bool isEngine;
     public bool isBlastShield;
     public bool isReactor;
+
 
     [Header("for door and blastshield")]
     public Transform openPos;
@@ -37,20 +40,20 @@ public class SwitchObject : MonoBehaviour
 
     void Awake()
     {
-        if (isDoor)
+        if (isDoor_AlsoForAirLock)
         {
             vector3Object = gameObject.transform.position;
             target = closedPos.transform;
         }
         if (isBlastShield)
         {
-            isDoor = true;
+            isDoor_AlsoForAirLock = true;
         }
     }
 
     void Update()
     {
-        if (isDoor)
+        if (isDoor_AlsoForAirLock)
         {
             float step =  moveSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
@@ -67,9 +70,13 @@ public class SwitchObject : MonoBehaviour
     {
         if (turnItOn)
         {
-            if(isDoor)
+            if(isDoor_AlsoForAirLock & !isDoorReverst)
             {
                 target = openPos.transform;
+            }
+            if(isDoorReverst)
+            {
+                target = closedPos.transform;
             }
 
             if(isEngine)
@@ -81,13 +88,19 @@ public class SwitchObject : MonoBehaviour
             {
                 reactor.overLoaded = true;
             }
+
             
         }
         else
         {
-            if(isDoor)
+            if(isDoor_AlsoForAirLock & !isDoorReverst)
             {
                target = closedPos.transform;
+            }
+
+            if(isDoorReverst)
+            {
+                target = openPos.transform;
             }
 
             if(isEngine)

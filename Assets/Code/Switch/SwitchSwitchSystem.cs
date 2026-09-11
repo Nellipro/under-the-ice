@@ -35,25 +35,25 @@ public class SwitchSwitchSystem : MonoBehaviour, IInteractible
         Quaternion targetRotation = startRotation * Quaternion.AngleAxis(targetAngle, rotationAxis.normalized);
         leverHandle.localRotation = Quaternion.Slerp(leverHandle.localRotation, targetRotation, moveSpeed * Time.deltaTime);
 
-        foreach (SwitchObject s in switchObject)
+        if (switchObject != null)
         {
-            if (isDown)
+            foreach (SwitchObject s in switchObject)
             {
-                value = 1;
-                if (switchObject != null)
+                if (isDown)
                 {
+                    value = 1;                 
                     s.ToggleObject(true);
-                }    
-            }
-            else if (!isDown)
-            {
-                value = 0;
-                if (switchObject != null)
-                {
-                    s.ToggleObject(false);
+                    
                 }
-            }
+                else if (!isDown)
+                {
+                    value = 0;                        
+                    s.ToggleObject(false);
+            
+                }
+            }  
         }
+
     }
 
     public void Interact()
