@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1059076503620950469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4068865423450307731}
+  m_Layer: 0
+  m_Name: ClosedPos (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4068865423450307731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059076503620950469}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.0511186, y: -4.169991, z: 3.2005882}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1506889880990426244}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1414152792464904596
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8786949426246677618}
   - component: {fileID: 5131072640426043957}
+  - component: {fileID: 7483710844840573893}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Air
@@ -53,6 +85,32 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.9999743, y: 5.1975756, z: 5.0555696}
   m_Center: {x: -0.042468548, y: 0.9054532, z: -0.027784705}
+--- !u!114 &7483710844840573893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414152792464904596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f2a681792d91048bf43411b4692ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwitchObject
+  isOn: 0
+  costPerSecond: 0
+  isLamp: 0
+  isDoor_AlsoForAirLock: 0
+  isDoorReverst: 0
+  isEngine: 0
+  isBlastShield: 0
+  isReactor: 0
+  openPos: {fileID: 3588196815921798192}
+  closedPos: {fileID: 4068865423450307731}
+  moveSpeed: 8
+  submarine: {fileID: 0}
+  rotationSpeed: 90
+  reactor: {fileID: 0}
 --- !u!1 &1698360301460482651
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,10 +120,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1506889880990426244}
-  - component: {fileID: 6565316602562230095}
   m_Layer: 0
   m_Name: TriggerHolder
-  m_TagString: Untagged
+  m_TagString: Air
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,37 +141,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8786949426246677618}
+  - {fileID: 4068865423450307731}
+  - {fileID: 3588196815921798192}
   m_Father: {fileID: 1635357460196182729}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6565316602562230095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1698360301460482651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f2a681792d91048bf43411b4692ba1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwitchObject
-  isOn: 0
-  costPerSecond: 0
-  isLamp: 0
-  isDoor: 0
-  isDoorReverst: 0
-  isEngine: 0
-  isBlastShield: 0
-  isReactor: 0
-  isAirLock: 0
-  openPos: {fileID: 0}
-  closedPos: {fileID: 0}
-  moveSpeed: 8
-  submarine: {fileID: 0}
-  rotationSpeed: 90
-  reactor: {fileID: 0}
-  airLock:
-  - {fileID: 1414152792464904596}
 --- !u!1 &1775471248086092816
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +722,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000001, y: 1, z: 0.9999999}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7058507035056562954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3588196815921798192}
+  m_Layer: 0
+  m_Name: OpenPos (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3588196815921798192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7058507035056562954}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.72, y: -2.52, z: 11.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1506889880990426244}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7385137561333713384
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,6 +951,10 @@ PrefabInstance:
       propertyPath: 'switchObject.Array.data[1]'
       value: 
       objectReference: {fileID: 6764127214933312869}
+    - target: {fileID: 3521024148034821204, guid: 98f3c6964d570a845810142dff459b75, type: 3}
+      propertyPath: 'switchObject.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7483710844840573893}
     - target: {fileID: 3719502884696086102, guid: 98f3c6964d570a845810142dff459b75, type: 3}
       propertyPath: isDoor
       value: 1
