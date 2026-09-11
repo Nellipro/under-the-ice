@@ -14,15 +14,22 @@ public class Reactor : MonoBehaviour
     public GameObject alarmLamp;
     public float lifeTimer;
     public float lifeTimerMax;
+    public bool isFixed;
 
     void Awake()
     {
         overLoaded = false;
+        isFixed = false;
     }
 
 
     void Update()
     {
+        if (isFixed)
+        {
+            return;
+        }
+        
         lifeTimer += Time.deltaTime;
 
         alarmBlinkTimer += Time.deltaTime * 10;

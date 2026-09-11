@@ -227,14 +227,17 @@ MonoBehaviour:
   isOn: 0
   costPerSecond: 1
   isLamp: 0
-  isDoor: 0
+  isDoor_AlsoForAirLock: 0
+  isDoorReverst: 0
   isEngine: 0
   isBlastShield: 1
+  isReactor: 0
   openPos: {fileID: 8388624405232382268}
   closedPos: {fileID: 1243345212567608736}
   moveSpeed: 8
   submarine: {fileID: 0}
   rotationSpeed: 90
+  reactor: {fileID: 0}
 --- !u!1 &5170088421281572340
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,14 +366,17 @@ MonoBehaviour:
   isOn: 0
   costPerSecond: 1
   isLamp: 0
-  isDoor: 0
+  isDoor_AlsoForAirLock: 0
+  isDoorReverst: 0
   isEngine: 0
   isBlastShield: 1
+  isReactor: 0
   openPos: {fileID: 2712223046581490533}
   closedPos: {fileID: 3475057832698006262}
   moveSpeed: 8
   submarine: {fileID: 0}
   rotationSpeed: 90
+  reactor: {fileID: 0}
 --- !u!1 &5462044288736134749
 GameObject:
   m_ObjectHideFlags: 0
