@@ -1,0 +1,259 @@
+=== PAGE 1 ===
+Under The Ice Design Document 
+ 
+Datum: 
+18/08/2026 
+ 
+ 
+Klas: 
+iddp 
+ 
+ 
+Naam studenten: 
+Justin van der Nat 
+Lars Ogink 
+Stijn Kuiter 
+Wesley Anemaet 
+Niels Veeneman 
+ 
+
+=== PAGE 2 ===
+Inhoudsopgave 
+ 
+Casus Omschrijving ................................ ................................ ................................ ..... 2 
+Assetlist ................................ ................................ ................................ ......................  4 
+Userstories ................................ ................................ ................................ ..................  6 
+Purerefs ................................ ................................ ................................ ......................  8 
+Diagrammen ................................ ................................ ................................ ................ 9 
+Wireframes ................................ ................................ ................................ ............. 10 
+Flowcharts ................................ ................................ ................................ ............. 11 
+Classdiagram ................................ ................................ ................................ ......... 12 
+Other stuff ................................ ................................ ................................ ................. 14 
+Trello................................ ................................ ................................ ......................  15 
+Github ................................ ................................ ................................ ....................  15 
+ 
+ 
+ 
+
+=== PAGE 3 ===
+Casus Omschrijving 
+Geef hier een algemene beschrijving van de casus/project. 
+Justin 
+ 
+Denk daarbij aan: 
+• Het doel van de game 
+• Een vertical slice van de gameplay 
+• Gewenste eindresultaat 
+• Eisen en Wensen vanuit de opdrachtgever 
+ 
+Je bent en man die naar zijn dood word gestuurd in een onderzeeër die draait op een 
+speciale nucleare reactor. Deze reactor gaat elke 15 min en 42 sec en elke keer dat het 
+kaboom doet rest de game. Je doel is om uit te vogelen hoe je ervoor kan zorgen dat je 
+reactor niet explodeert.  
+ 
+Je moet 2 gevaarlije water beesten overleeven biinenn en buiten de onderzeeer. Deze 
+onderzeeer heeft een paar diengen die die kan gebruiken maar geen daar van zijn wapens. 
+Er zijn 3 plekken waar je naar toe kan deze plekken zijn, de helikopter die je in naar de plek 
+heeft gebracht en is neer gestord voor dat die je in het waater kon leggen, een ruine van een 
+lab die een mateeriaal aan het onderzoeken was dat Super Temporal Sodium heet en een 
+mine waar die mateeriaal 2van gehaald word. 
+ 
+Het zou fijn zijn als de onderzeeer het volledig doet en de main game loop gespeeld kan 
+worden  
+ 
+
+=== PAGE 4 ===
+ 
+Assetlist 
+Stijn 
+Verzamel en schrijf alle benodigde assets om het eindresultaat te bereiken 
+Denk daarbij aan: 
+• 3D modellen die gemaakt moeten worden 
+o En de animaties die ze mogelijk hebben 
+• Gamemechanics 
+• Sound & visual effects 
+ 
+Models 
+Submarine 
+Control panel 
+Sonar screen 
+Player model (at least the body, head not needed) 
+Environmental fish models (could also be planes with textures. Just something to fill the 
+emptiness) 
+Enemy fishes 
+The reactor 
+Helicopter crash site 
+The Super Temporal Sodium 
+Minecart 
+Ores (to fill up the mine) 
+Rails 
+Boxes (for carrying ores) 
+Supports for the mine 
+Ocean plants (to liven up the ocean floor) 
+
+=== PAGE 5 ===
+Ruined lab equipment (test tubes, safety gear, etc) 
+Helicoper crash site supplies (could be interactable) 
+Repair tools 
+Ladder 
+ 
+ 
+Mechanics 
+Game restarts every 15 minutes and 43 seconds 
+Need to prevent reactor from melting down 
+Use decoys to lure the big fish 
+Use sonar to locate fish 
+Repair reactor/Submarine 
+Repair life support 
+Repair sonar scanner through crawlspace 
+ 
+SFX(sound effects)/VFX(visual effects) 
+Water ambience SFX 
+Reactor ambience SFX 
+Submarine engines SFX 
+Footsteps SFX 
+Interaction indication SFX 
+Sonar beeping SFX 
+Distant enemy fish SFX (quiet, muffled) 
+Close enemy fish SFX 
+Player swimming SFX 
+
+=== PAGE 6 ===
+Reactor alarm SFX 
+Reactor meltdown/explosion SFX 
+Power on/off SFX 
+Airlock hissing SFX 
+Control menu buttons SFX 
+Outside bubbles VFX 
+Engine VFX 
+Underwater shader 
+Underwater VFX 
+Explosion VFX 
+Reactor VFX 
+Fish/player swimming VFX 
+Water VFX 
+Fog VFX/shader 
+ 
+ 
+
+=== PAGE 7 ===
+Userstories 
+ 
+Niels Veeneman 
+Schrijf voor elke of eis en wens userstories 
+Denk daarbij aan: 
+• De format: WIE wil WAT doen en WAAROM 
+• Grote userstories worden opgedeeld onder kleinere 
+ 
+de speler wil kunnen rondlopen door een duikboot 
+de speler wil buiten de duikboot kunnen komen via de airlock 
+De speler wil  elk gedeelte vean de duikboot kunnen komen 
+de speler wil de duikboot kunnen repareeren als deze kapot gaat 
+De speler wil kunnen interacteren met meerdere systeemen in zijn duikboot 
+de speler wil de duikboot kunnen bestuuren 
+de speler wil rond kunnen zwemmen buiten de duikboot 
+de speler wil een sonar kunnen gebruiken als afleiding tegen zeemonsters 
+De speler wil het spel kunnen uitspelen 
+de speler wil dat elke 15 min en 42 seconden de reactor opblaast 
+De speler wil met de sonar onderwater beesten wegjagen 
+De speler wil met de sonar onderwater beesten lokken 
+De speler wil stroom kunnen aan zetten in het geval als het uitgaat 
+De speler wil de ‘Blast Shield’ open of dicht doen 
+De speler wil ‘Super Temporal Sodium’ gebruiken om de reactor te repareren 
+De speler wil het ‘life support’ opnieuw repareren om zuurstof terug te krijgen 
+De speler wil een fog effect 
+De speler wil 3d pathfinding 
+De speler wil een ladder gebruiken om bij de eerste verdieping te komen 
+
+=== PAGE 8 ===
+De speler wil in de kruipruimte komen om de sonar te repareren 
+de speler wil de gyroscopic stabilizer kunnen uitzetten 
+De speler wil de storage closet in en uit kunnen 
+De speler wil op en af een ladder kunnen klimmen 
+De speler wil kunnen kruipen door het kruipruim 
+De speler wil de power opnieuw kunnen aan zetten om niet dood te gaan 
+ 
+ 
+
+=== PAGE 9 ===
+Purerefs 
+Lars 
+Maak voor elk visuele highlight een reference 
+Denk daarbij aan: 
+• Een consistente thema 
+• Duidelijke indeling 
+• Cluster relevante assets 
+ 
+ 
+ 
+ 
+ 
+
+
+=== PAGE 10 ===
+Diagrammen 
+Wireframes 
+Wesley 
+ 
+ 
+ 
+ 
+
+
+=== PAGE 11 ===
+Hud closup: 
+ 
+https://drive.google.com/file/d/1xExXumq2jd5tAb1_7rETYSKFZ28zEuUw/view?usp=sharin
+g 
+ 
+ 
+ 
+ 
+ 
+
+
+=== PAGE 12 ===
+Flowcharts 
+Justin  
+Denk daarbij aan: 
+• De main gameplay loop 
+• Het starten en eindigen van een game 
+ 
+https://app.diagrams.net/#G1pbMHrJ66obAVWLGpehdwlG4gnzL2gYRB#%7B"pageId"%3A"hEcYQUtypO
+CL9MZyBH1_"%7D 
+  
+ 
+ 
+
+
+=== PAGE 13 ===
+Classdiagram 
+Denk aan het volgende om de ingeplande mechanics te realiseren: 
+• Alle benodigde klassen 
+• De relaties tussen deze klassen 
+• Variabelen en methodes die nodig zijn 
+https://app.diagrams.net/#G1t2buzhOy143-
+PYnmG8bDCwQ0ANj_Haz9#%7B"pageId"%3A"F6NirLJZM7iUacRXMaYx"%7D 
+ 
+ 
+
+
+=== PAGE 14 ===
++  
+
+
+=== PAGE 15 ===
+Other stuff 
+Trello 
+ 
+https://trello.com/invite/b/6a8846d6d250bbe8947d0fe8/ATTI53bffe6c4f7cf92db6c56d2c1
+cfa9f072CE7E5AF/under-the-ice 
+ 
+Github 
+https://github.com/CatXi234561/UnderTheIce 
+ 
+ 
+ 
+ 
+Document is bound to change! 
+ 

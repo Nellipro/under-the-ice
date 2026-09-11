@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/nya.unity
+    path: Assets/Scenes/GPUHandler.unity
+    guid: 49ef01450e4923c4cbdb0a803ecad305
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 7aa67ee44c6510d49a55448f7228ef7d
+  - enabled: 1
+    path: Assets/Scenes/nya/nya.unity
     guid: 4bac887159f04d346a80e1f775ec48cb
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity

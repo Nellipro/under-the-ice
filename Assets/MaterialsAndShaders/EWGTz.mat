@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: EWGTz
-  m_Shader: {fileID: -6465566751694194690, guid: ea5d2e4a1cc8e4144bb447715d05412e, type: 3}
-  m_Parent: {fileID: -876546973899608171, guid: ea5d2e4a1cc8e4144bb447715d05412e, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: c25c7dad61048404da8b7be3b4ba080a, type: 3}
+  m_Parent: {fileID: -876546973899608171, guid: c25c7dad61048404da8b7be3b4ba080a, type: 3}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -33,6 +33,7 @@ Material:
     - _strength: 1
     m_Colors:
     - _BlurDir: {r: 0.01, g: 0.01, b: 0, a: 0}
+    - _ColorToAdd: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6857901116454506787

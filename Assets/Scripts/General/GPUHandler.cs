@@ -1,7 +1,6 @@
 using UnityEngine;
 using System;
 using System.Text;
-using UnityEngine.SceneManagement;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
@@ -209,7 +208,7 @@ public class GPUHandler : MonoBehaviour
     }
     void MainSceneLoader()
     {
-        SceneManager.LoadScene(1);
+        SceneFadeLoader.LoadScene(1);
     }
 }
 
