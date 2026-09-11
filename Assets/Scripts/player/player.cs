@@ -12,6 +12,7 @@ public class player : MonoBehaviour
     [SerializeField] private GameObject playerCamera;
     private float camPitch;
     [Header("Oxygen Settings")]
+    [SerializeField] private GameObject UnderwaterEffect;
     [SerializeField] private float oxygen = 100f;
     [SerializeField] private int maxOxygen = 100; // Maximum oxygen level
 
@@ -140,15 +141,16 @@ public class player : MonoBehaviour
             {
                 rb.AddForce(Vector3.up * 2.5f, ForceMode.Force); // Apply upward force for swimming
             }
+            UnderwaterEffect.SetActive(true);
         }
         // normal submarine physics for the player
         if (isInAir)
         {
+            UnderwaterEffect.SetActive(false);
             // Apply normal physics
             rb.AddForce(Vector3.down * 9.81f, ForceMode.Force); // Normal gravity force
             
             Vector3 moveDirection = transform.right * moveInput.x + transform.forward * moveInput.y;
-            
             rb.AddForce(moveDirection.normalized * speed, ForceMode.Force);
         }
         if(!freezeCam) //camera system
