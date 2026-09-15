@@ -16,7 +16,7 @@ public class SwitchObject : MonoBehaviour
     public bool isEngine;
     public bool isBlastShield;
     public bool isReactor;
-
+    public bool isSonar;
 
     [Header("for door and blastshield")]
     public Transform openPos;
@@ -33,6 +33,8 @@ public class SwitchObject : MonoBehaviour
     [Header("for Reactor")]
     public Reactor reactor;
 
+    [Header("for Sonar")]
+    public SonarSystem sonarSystem;
 
 
 
@@ -74,6 +76,7 @@ public class SwitchObject : MonoBehaviour
             {
                 target = openPos.transform;
             }
+            
             if(isDoorReverst)
             {
                 target = closedPos.transform;
@@ -89,7 +92,10 @@ public class SwitchObject : MonoBehaviour
                 reactor.overLoaded = true;
             }
 
-            
+            if(isSonar)
+            {
+                sonarSystem.OnSonar();
+            }
         }
         else
         {

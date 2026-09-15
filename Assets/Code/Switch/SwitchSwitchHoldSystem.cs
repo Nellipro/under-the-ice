@@ -41,10 +41,13 @@ public class SwitchSwitchHoldSystem : MonoBehaviour, IInteractible
         if (isDown)
         {
             value = 1;
+
+            switchObject.ToggleObject(true);
         }
         else if (!isDown)
         {
             value = 0;
+            switchObject.ToggleObject(false);
         }
     }
 

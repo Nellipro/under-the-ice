@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwitchSwitchSystem : MonoBehaviour, IInteractible
@@ -41,14 +42,22 @@ public class SwitchSwitchSystem : MonoBehaviour, IInteractible
             {
                 if (isDown)
                 {
-                    value = 1;                 
-                    s.ToggleObject(true);
+                    value = 1;
+
+                    if(s != null)
+                    {
+                        s.ToggleObject(true);
+                    }    
                     
                 }
                 else if (!isDown)
                 {
-                    value = 0;                        
-                    s.ToggleObject(false);
+                    value = 0; 
+
+                    if(s != null)
+                    {
+                        s.ToggleObject(false);                       
+                    }                      
             
                 }
             }  

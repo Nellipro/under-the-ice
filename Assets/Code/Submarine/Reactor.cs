@@ -15,6 +15,7 @@ public class Reactor : MonoBehaviour
     public float lifeTimer;
     public float lifeTimerMax;
     public bool isFixed;
+    public SodiumManeger sodiumManeger;
 
     void Awake()
     {
@@ -25,6 +26,8 @@ public class Reactor : MonoBehaviour
 
     void Update()
     {
+        isFixed = sodiumManeger.secondInteractionHappened;
+
         if (isFixed)
         {
             return;

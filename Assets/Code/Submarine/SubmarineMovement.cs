@@ -91,15 +91,7 @@ public class SubmarineMovement : MonoBehaviour
 
     void Stabilize()
     {
-        Vector3 currentRotation = thisShip.eulerAngles;
-
-        if (currentRotation.x > 180) currentRotation.x -= 360;
-        if (currentRotation.z > 180) currentRotation.z -= 360;
-
-        if (Mathf.Abs(upLever.value) + Mathf.Abs(downLever.value) < 0.1f)
-            rb.AddTorque(-currentRotation.x * stabilizationForce, 0, 0);
-        
-        if (Mathf.Abs(leftLever.value) + Mathf.Abs(rightLever.value) < 0.1f)
-            rb.AddTorque(0, 0, -currentRotation.z * stabilizationForce);
+        Vector3 tiltTorque = Vector3.Cross(thisShip.up, Vector3.up) * stabilizationForce;
+        rb.AddTorque(tiltTorque);
     }
 }

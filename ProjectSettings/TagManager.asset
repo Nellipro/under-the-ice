@@ -35,9 +35,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - invis
+  - PingCheck
+  - SonarDetectable
   m_SortingLayers:
   - name: Default
     uniqueID: 0

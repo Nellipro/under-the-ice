@@ -2692,16 +2692,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SonarSystem
   sonarOrigin: {fileID: 324722290}
   pulsePrefab: {fileID: 7232300150130036688, guid: 3428dead1d5940741a4b1b66861b238b, type: 3}
-  sonarRange: 100
-  pulseDuration: 6
-  pulseCooldown: 3
+  sonarRange: 500
+  pulseDuration: 1.5
+  pulseCooldown: 2
   detectableLayers:
     serializedVersion: 2
     m_Bits: 2147483648
-  ping: {fileID: 6215472863680167748, guid: afa7e0c964517924a88062d141d81c9b, type: 3}
-  latitudeLines: 24
-  longitudePoints: 48
-  hitPrefab: {fileID: 972373619928711080, guid: 81c3c2a4fe1a6e745a716da1bcce6fbb, type: 3}
 --- !u!1 &309101346
 GameObject:
   m_ObjectHideFlags: 0
@@ -14815,10 +14811,6 @@ PrefabInstance:
       propertyPath: isDoor_AlsoForAirLock
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1257547902577694024, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 1073741824
-      objectReference: {fileID: 0}
     - target: {fileID: 1674532249955134330, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 254.65
@@ -14883,10 +14875,6 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2948991689229090163, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 1073741824
-      objectReference: {fileID: 0}
     - target: {fileID: 3105095782057402927, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -14930,10 +14918,6 @@ PrefabInstance:
     - target: {fileID: 5587570125846346790, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
       propertyPath: isDoor_AlsoForAirLock
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5708093362428470930, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 2147483767
       objectReference: {fileID: 0}
     - target: {fileID: 5902938028774521882, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
       propertyPath: m_Layer
