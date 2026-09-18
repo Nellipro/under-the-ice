@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8961691283670012001}
   - component: {fileID: 903072237877811003}
   - component: {fileID: 7456882481304957197}
-  m_Layer: 0
+  m_Layer: 28
   m_Name: Ping
   m_TagString: Untagged
   m_Icon: {fileID: 0}

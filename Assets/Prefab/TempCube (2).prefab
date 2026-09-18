@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 185007583009559926}
   - component: {fileID: 5116291775842240359}
   - component: {fileID: 4825311578628307997}
-  - component: {fileID: 7798065394337400502}
+  - component: {fileID: 5693529559179545709}
   m_Layer: 0
   m_Name: TempCube (2)
   m_TagString: Untagged
@@ -114,7 +114,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7798065394337400502
+--- !u!114 &5693529559179545709
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,15 +123,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 246414868703058548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aac711a8d06b70b44a53f0d2e3056e39, type: 3}
+  m_Script: {fileID: 11500000, guid: 8dcd4877a4d582a499569725cad2e11a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwitchSwitchHoldSystem
+  m_EditorClassIdentifier: Assembly-CSharp::SwitchSwitchSystem
   rotationAxis: {x: 1, y: 0, z: 0}
   upAngle: -35
   downAngle: 35
   moveSpeed: 8
   value: 0
-  switchObject: {fileID: 0}
+  switchObject: []
 --- !u!1 &8153302043177634799
 GameObject:
   m_ObjectHideFlags: 0

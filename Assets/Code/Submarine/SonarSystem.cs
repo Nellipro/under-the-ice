@@ -8,13 +8,14 @@ public class SonarSystem : MonoBehaviour
     [Header("Sonar pulse")]
     [SerializeField] private Transform sonarOrigin;
     [SerializeField] private GameObject pulsePrefab;
-    [SerializeField] private float sonarRange = 50f;
-    [SerializeField] private float pulseDuration = 1.5f;
-    [SerializeField] private float pulseCooldown = 2f;
+    [SerializeField] private float sonarRange;
+    [SerializeField] private float pulseDuration;
+    [Min(0.01f)]
+    [SerializeField] private float speedModifier = 1f;
+    [SerializeField] private float pulseCooldown;
     [SerializeField] private LayerMask detectableLayers;
-    [SerializeField] private GameObject ping;
-    [SerializeField] private int latitudeLines = 12;
-    [SerializeField] private int longitudePoints = 24;
+    [SerializeField] private int latitudeLines;
+    [SerializeField] private int longitudePoints;
     [SerializeField] private GameObject hitPrefab;
     private float hitPrefabLifetime;
     private float cooldownTimer;
@@ -63,7 +64,6 @@ public class SonarSystem : MonoBehaviour
             : transform.position;
 
         List<Vector3> directions = new List<Vector3>();
-        List<GameObject> spawnedPings = new List<GameObject>();
         List<bool> stoppedPings = new List<bool>();
 
         for (int latitude = 0; latitude <= latitudeLines; latitude++)
@@ -88,13 +88,6 @@ public class SonarSystem : MonoBehaviour
 
                 directions.Add(direction);
                 stoppedPings.Add(false);
-
-                if (ping != null)
-                {
-                    spawnedPings.Add(
-                        Instantiate(ping, origin, Quaternion.identity)
-                    );
-                }
             }
         }
 
@@ -103,7 +96,7 @@ public class SonarSystem : MonoBehaviour
 
         while (elapsed < pulseDuration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.deltaTime * speedModifier;
 
             float progress = Mathf.Clamp01(elapsed / pulseDuration);
             float radius = sonarRange * progress;
@@ -111,7 +104,7 @@ public class SonarSystem : MonoBehaviour
             pulse.transform.position = origin;
             pulse.transform.localScale = Vector3.one * radius * 2f;
 
-            for (int i = 0; i < spawnedPings.Count; i++)
+            for (int i = 0; i < directions.Count; i++)
             {
                 if (stoppedPings[i])
                 {
@@ -136,7 +129,6 @@ public class SonarSystem : MonoBehaviour
                         QueryTriggerInteraction.Ignore) &&
                     hit.transform.root != transform.root)
                 {
-                    spawnedPings[i].transform.position = hit.point;
                     stoppedPings[i] = true;
 
                     if (hitPrefab != null)
@@ -152,19 +144,10 @@ public class SonarSystem : MonoBehaviour
 
                     Debug.Log("Sonar ping detected: " + hit.collider.name);
                 }
-                else
-                {
-                    spawnedPings[i].transform.position = nextPosition;
-                }
             }
 
             previousRadius = radius;
             yield return null;
-        }
-
-        foreach (GameObject spawnedPing in spawnedPings)
-        {
-            Destroy(spawnedPing);
         }
 
         Destroy(pulse);

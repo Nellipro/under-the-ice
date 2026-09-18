@@ -52,21 +52,12 @@ public class SubmarineMovement : MonoBehaviour
             Turn();
             Thrust();
             GoUpAndDown();
-
-            if (Mathf.Abs(upLever.value) + Mathf.Abs(downLever.value) < 0.1f)
-            {
-                if (Mathf.Abs(leftLever.value) + Mathf.Abs(rightLever.value) < 0.1f)
-                {
-                    Stabilize();
-                }
-               
-            }
         }
     }
 
     void Turn()
     {
-        float Y = leftLever.value + -rightLever.value;
+        float Y = rightLever.value + -leftLever.value;
         yaw = (turnSpeed * Y);
         thisShip.Rotate(pitch, yaw, roll);
     }
@@ -87,11 +78,5 @@ public class SubmarineMovement : MonoBehaviour
 
         downValue = downLever.value;
         rb.AddForce(-(thisShip.up * thrustSpeed * (downValue * 100)));
-    }
-
-    void Stabilize()
-    {
-        Vector3 tiltTorque = Vector3.Cross(thisShip.up, Vector3.up) * stabilizationForce;
-        rb.AddTorque(tiltTorque);
     }
 }
