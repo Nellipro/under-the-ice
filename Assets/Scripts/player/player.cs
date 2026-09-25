@@ -7,12 +7,20 @@ public class player : MonoBehaviour
     [SerializeField] private float speed = 20.0f;
     [SerializeField] private float jumpPower = 5.0f;
     [SerializeField] private float mouseSensitivity = 3f;
+
+    [Header("Walking")]
+    [SerializeField] private float walkSpeed = 5f;
+    [SerializeField] private float sprintSpeed = 8f;
+    [SerializeField] private float groundAcceleration = 35f;
+    [SerializeField] private float groundBraking = 45f;
+    [SerializeField] private float airAcceleration = 8f;
+    private bool sprintHeld;
     
     [Header("Camera Settings")]
     [SerializeField] private GameObject playerCamera;
     private float camPitch;
     [Header("Oxygen Settings")]
-    [SerializeField] private GameObject UnderwaterEffect;
+    //[SerializeField] private GameObject UnderwaterEffect;
     [SerializeField] private float oxygen = 100f;
     [SerializeField] private int maxOxygen = 100; // Maximum oxygen level
 
@@ -31,17 +39,15 @@ public class player : MonoBehaviour
     [SerializeField] private bool crouchPressed = false;
 
     [Header("Other Settings")]
+
     private Vector3 camTest;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform groundCheckPos;
     #endregion
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
 #region Input Methods
     void OnSprint(InputValue value)
     {
+        sprintHeld = value.isPressed;
         if (value.isPressed)
         {
             if (isInAir) // Only allow sprinting if not in air
@@ -101,6 +107,15 @@ public class player : MonoBehaviour
         viewInput *= mouseSensitivity * 0.1f; // Adjust sensitivity as needed
     }
     #endregion
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        Invoke(nameof(FixPlayer), 10f);
+    }
+    void FixPlayer()
+    {
+        moveInput = new Vector2(0, 0);
+    }
 
   #region AirCheck
     private void OnTriggerStay(Collider other)
@@ -128,30 +143,60 @@ public class player : MonoBehaviour
     void FixedUpdate()
     {
         #region movement
-        
+    
         if (!isInAir)
         {
             
             // Apply water physics
             // For example, reduce gravity
-            rb.AddForce(Vector3.down * 1.0f);// Reduced gravity force in water 
+            rb.AddForce(Vector3.down * 0.5f);// Reduced gravity force in water 
             camTest = transform.right * moveInput.x + playerCamera.transform.forward * moveInput.y;
             rb.AddForce(camTest.normalized * speed, ForceMode.Force);    
              if (jumpPressed)
             {
                 rb.AddForce(Vector3.up * 2.5f, ForceMode.Force); // Apply upward force for swimming
             }
-            UnderwaterEffect.SetActive(true);
+           //UnderwaterEffect.SetActive(true);
         }
         // normal submarine physics for the player
         if (isInAir)
         {
-            UnderwaterEffect.SetActive(false);
+            //UnderwaterEffect.SetActive(false);
             // Apply normal physics
             rb.AddForce(Vector3.down * 9.81f, ForceMode.Force); // Normal gravity force
             
             Vector3 moveDirection = transform.right * moveInput.x + transform.forward * moveInput.y;
-            rb.AddForce(moveDirection.normalized * speed, ForceMode.Force);
+            moveDirection.y = 0f;
+            moveDirection = Vector3.ClampMagnitude(moveDirection, 1f);
+
+            float targetSpeed = sprintHeld ? sprintSpeed : walkSpeed;
+            Vector3 targetVelocity = moveDirection * targetSpeed;
+
+            Vector3 horizontalVelocity = rb.linearVelocity;
+            horizontalVelocity.y = 0f;
+
+            bool hasInput = moveInput.sqrMagnitude > 0.001f;
+            bool grounded = jumpIsAllowed;
+
+            // Brake on the ground; preserve airborne momentum without input.
+            if (grounded || hasInput)
+            {
+                float acceleration = grounded
+                    ? (hasInput ? groundAcceleration : groundBraking)
+                    : airAcceleration;
+
+                Vector3 nextVelocity = Vector3.MoveTowards(
+                    horizontalVelocity,
+                    targetVelocity,
+                    acceleration * Time.fixedDeltaTime
+                );
+
+                // Adjust horizontal motion without changing jump/fall velocity.
+                rb.AddForce(
+                    nextVelocity - horizontalVelocity,
+                    ForceMode.VelocityChange
+                );
+            }
         }
         if(!freezeCam) //camera system
         {

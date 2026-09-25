@@ -1,12 +1,14 @@
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class UserInterfaceInGame : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenuDialog; 
     [SerializeField] private GameObject escMenuDialog; 
+    [SerializeField] private GameObject escMenuFirstSelected;
     public void MainMenuDialog()
     {
         mainMenuDialog.SetActive(true); // Show the main menu dialog
+        EventSystem.current.SetSelectedGameObject(mainMenuDialog); // Set the selected game object to the main menu dialog
     }
     public void CloseMainMenuDialog()
     {
@@ -19,5 +21,6 @@ public class UserInterfaceInGame : MonoBehaviour
     public void closeEscMenu()
     {
         escMenuDialog.SetActive(false); // Hide the escape menu dialog
+        EventSystem.current.SetSelectedGameObject(escMenuFirstSelected);
     }
 }

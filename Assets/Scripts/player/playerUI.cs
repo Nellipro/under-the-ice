@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 public class playerUI : MonoBehaviour
 {
     [SerializeField] private bool showEscapeMenu = false;
     [SerializeField] private GameObject EscapeMenu;
+    [SerializeField] private GameObject EscapeMenuFirstSelected;
 
     public bool ShowUI => showEscapeMenu; // Public property to access ShowUI
     
@@ -17,6 +19,10 @@ public class playerUI : MonoBehaviour
     void OnEscape(InputValue value)
     {
         showEscapeMenu = !showEscapeMenu;
+        if (showEscapeMenu)
+        {
+            EventSystem.current.SetSelectedGameObject(EscapeMenuFirstSelected);
+        }
     }
     // Update is called once per frame
     void Update()
