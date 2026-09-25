@@ -105,12 +105,14 @@ MonoBehaviour:
   isEngine: 0
   isBlastShield: 0
   isReactor: 0
+  isSonar: 0
   openPos: {fileID: 3588196815921798192}
   closedPos: {fileID: 4068865423450307731}
   moveSpeed: 8
   submarine: {fileID: 0}
   rotationSpeed: 90
   reactor: {fileID: 0}
+  sonarSystem: {fileID: 0}
 --- !u!1 &1698360301460482651
 GameObject:
   m_ObjectHideFlags: 0

@@ -127,6 +127,16 @@ public class player : MonoBehaviour
     void FixedUpdate()
     {
         #region movement
+
+        if (freezeCam)
+        {
+            moveInput = Vector2.zero;
+            viewInput = Vector2.zero;
+            jumpPressed = false;
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            return;
+        }
         
         if (!isInAir)
         {
@@ -151,15 +161,12 @@ public class player : MonoBehaviour
             
             rb.AddForce(moveDirection.normalized * speed, ForceMode.Force);
         }
-        if(!freezeCam) //camera system
-        {
-            // Rotate the camera based on view input
-            gameObject.transform.Rotate(0f, viewInput.x, 0f);
-            
-            camPitch -= viewInput.y;
-            camPitch = Mathf.Clamp(camPitch, -80f, 75f);
-            playerCamera.transform.localRotation = Quaternion.Euler(camPitch, 0f, 0f);
-        }
+        // Rotate the camera based on view input
+        gameObject.transform.Rotate(0f, viewInput.x, 0f);
+        
+        camPitch -= viewInput.y;
+        camPitch = Mathf.Clamp(camPitch, -80f, 75f);
+        playerCamera.transform.localRotation = Quaternion.Euler(camPitch, 0f, 0f);
 
     
         #endregion
