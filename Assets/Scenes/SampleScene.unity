@@ -12853,7 +12853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7337917789326664277, guid: 779ff11de198b534dbb3092959522db8, type: 3}
       propertyPath: detectableLayers.m_Bits
-      value: 2281701376
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9135602849211442523, guid: 779ff11de198b534dbb3092959522db8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23002,6 +23002,10 @@ PrefabInstance:
     - target: {fileID: 4578665073909133023, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
       propertyPath: m_Cameras.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578665073909133023, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4578665073909133023, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
       propertyPath: 'm_Cameras.Array.data[0]'
