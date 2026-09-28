@@ -17,6 +17,7 @@ public class SwitchObject : MonoBehaviour
     public bool isBlastShield;
     public bool isReactor;
     public bool isSonar;
+    public bool isOnPlayer;
 
     [Header("for door and blastshield")]
     public Transform openPos;
@@ -35,6 +36,8 @@ public class SwitchObject : MonoBehaviour
 
     [Header("for Sonar")]
     public SonarSystem sonarSystem;
+
+
 
 
 
@@ -65,6 +68,19 @@ public class SwitchObject : MonoBehaviour
         {
             float step = rotationSpeed * Time.deltaTime;
             transform.rotation = Quaternion.RotateTowards(transform.rotation,target.rotation,step);
+        }
+
+        if (isOnPlayer)
+        {
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                ToggleObject(true);
+            }
+
+            if (Input.GetKeyUp(KeyCode.C))
+            {
+                ToggleObject(false);
+            }
         }
     }
 
