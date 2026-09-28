@@ -16,7 +16,7 @@ public class UserInterfaceInGame : MonoBehaviour
     }
     public void backToMainMenu()
     {
-        SceneFadeLoader.LoadScene(1); // Load the main menu scene (assuming scene index 0 is the main menu)
+        //SceneFadeLoader.LoadScene(1); // Load the main menu scene (assuming scene index 0 is the main menu)
     }
     public void closeEscMenu()
     {
