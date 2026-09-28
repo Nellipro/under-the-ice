@@ -12,7 +12,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
+  - 
+  - 
+  - 
+  - 
+  - NavigationObstacle
   - 
   - 
   - 
@@ -33,14 +37,17 @@ TagManager:
   - 
   - 
   - 
-  - Submarine
-  - SonarPing
-  - invis
-  - PingCheck
-  - SonarDetectable
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
     locked: 0
   m_RenderingLayers:
   - Default
+  - Light Layer 1
+  - Light Layer 2
+  - Light Layer 3
+  - Light Layer 4
+  - Light Layer 5
+  - Light Layer 6
+  - Light Layer 7
