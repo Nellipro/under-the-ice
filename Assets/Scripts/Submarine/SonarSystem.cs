@@ -17,8 +17,11 @@ public class SonarSystem : MonoBehaviour
     [SerializeField] private int latitudeLines;
     [SerializeField] private int longitudePoints;
     [SerializeField] private GameObject hitPrefab;
+    [SerializeField] private AudioClip PulseAudio;
     private float hitPrefabLifetime;
     private float cooldownTimer;
+    public Transform pulseParant;
+    
 
 
 
@@ -37,7 +40,8 @@ public class SonarSystem : MonoBehaviour
 
     public void OnSonar()
     {   
-        SendPulse();        
+        SendPulse();   
+        
     }
 
     public void SendPulse()
@@ -46,6 +50,8 @@ public class SonarSystem : MonoBehaviour
         {
             return;
         }
+
+        SoundManeger.instance.PlaySoundFXClip(PulseAudio, transform, 1f);
 
         cooldownTimer = pulseCooldown;
         Vector3 origin = sonarOrigin != null ? sonarOrigin.position : transform.position;
@@ -136,7 +142,8 @@ public class SonarSystem : MonoBehaviour
                         GameObject hitEffect = Instantiate(
                             hitPrefab,
                             hit.point,
-                            Quaternion.LookRotation(hit.normal)
+                            Quaternion.LookRotation(hit.normal),
+                            pulseParant                        
                         );
 
                         Destroy(hitEffect, hitPrefabLifetime);
