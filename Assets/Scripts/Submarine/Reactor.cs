@@ -1,7 +1,6 @@
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.AdaptivePerformance;
-using UnityEngine.SceneManagement;
 
 public class Reactor : MonoBehaviour
 {
@@ -16,11 +15,13 @@ public class Reactor : MonoBehaviour
     public float lifeTimerMax;
     public bool isFixed;
     public SodiumManeger sodiumManeger;
+    public bool isExploding;
 
     void Awake()
     {
         overLoaded = false;
         isFixed = false;
+        isExploding = false;
     }
 
 
@@ -57,7 +58,7 @@ public class Reactor : MonoBehaviour
 
             if (overLoadTimer >= overLoadTimerMax)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                isExploding = true;
             }            
         }
 

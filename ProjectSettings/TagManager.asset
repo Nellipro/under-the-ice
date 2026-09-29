@@ -12,7 +12,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
@@ -33,11 +33,11 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - test
-  - 
-  - 
-  - 
+  - Submarine
+  - SonarPing
+  - invis
+  - PingCheck
+  - SonarDetectable
   m_SortingLayers:
   - name: Default
     uniqueID: 0
