@@ -7,7 +7,7 @@ public class ExplaostionWorker : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            SceneFadeLoader.LoadScene(SceneManager.GetActiveScene().name);
+            SceneFadeReloader.Reload();
         }  
     }
 

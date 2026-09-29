@@ -26,14 +26,14 @@ public class ReactorKaboomSystem : MonoBehaviour
                 explosionParticles,
                 transform.position,
                 transform.rotation,
-                transform
+                boomParent.transform
             );
 
             GameObject boom = Instantiate(
                 BigBoom,
                 transform.position,
                 transform.rotation,
-                transform
+                boomParent.transform
             );
 
             boomTransform = boom.transform;
