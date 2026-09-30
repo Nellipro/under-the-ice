@@ -3,6 +3,7 @@ using System;
 using System.Text;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using UnityEngine.SceneManagement;
 
 public class GPUHandler : MonoBehaviour
 {
@@ -208,7 +209,7 @@ public class GPUHandler : MonoBehaviour
     }
     void MainSceneLoader()
     {
-        SceneFadeLoader.LoadScene(1);
+        SceneFadeLoader.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
 
