@@ -16,6 +16,7 @@ public class SecurityCamras : MonoBehaviour, IInteractible
 
     [Header("Player")]
     [SerializeField] private playerUI playerUI;
+    [SerializeField] private Camera playerCamera;
 
     private RenderTexture cameraTexture;
     private RenderTexture[] originalTargets;
@@ -23,11 +24,17 @@ public class SecurityCamras : MonoBehaviour, IInteractible
     private Camera activeCamera;
     private int activeCameraIndex;
     private bool viewerOpen;
+    private bool originalPlayerCameraState;
     private CursorLockMode previousCursorLockState;
     private bool previousCursorVisibility;
 
     private void Awake()
     {
+        if (playerCamera == null)
+        {
+            playerCamera = Camera.main;
+        }
+
         if (cameraFeeds == null || cameraFeeds.Length == 0)
         {
             return;
@@ -130,6 +137,11 @@ public class SecurityCamras : MonoBehaviour, IInteractible
             playerUI.SetCameraViewerOpen(false);
         }
 
+        if (playerCamera != null)
+        {
+            playerCamera.enabled = originalPlayerCameraState;
+        }
+
         Cursor.lockState = previousCursorLockState;
         Cursor.visible = previousCursorVisibility;
     }
@@ -147,6 +159,12 @@ public class SecurityCamras : MonoBehaviour, IInteractible
         viewerOpen = true;
         previousCursorLockState = Cursor.lockState;
         previousCursorVisibility = Cursor.visible;
+
+        if (playerCamera != null)
+        {
+            originalPlayerCameraState = playerCamera.enabled;
+            playerCamera.enabled = false;
+        }
 
         for (int i = 0; i < cameraFeeds.Length; i++)
         {
