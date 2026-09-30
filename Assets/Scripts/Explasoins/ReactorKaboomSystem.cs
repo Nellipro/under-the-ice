@@ -39,11 +39,11 @@ public class ReactorKaboomSystem : MonoBehaviour
             boomTransform = boom.transform;
         }
 
-        if (boomTransform != null)
-        {
-            growthSpeed += Time.deltaTime;
+        // if (boomTransform != null)
+        // {
+        //     growthSpeed += Time.deltaTime;
 
-            boomTransform.localScale += Vector3.one * growthSpeed * Time.deltaTime;
-        }
+        //     boomTransform.localScale += Vector3.one * growthSpeed * Time.deltaTime;
+        // }
     }
 }
