@@ -170,13 +170,27 @@ public class player : MonoBehaviour
             moveDirection = Vector3.ClampMagnitude(moveDirection, 1f);
 
             float targetSpeed = sprintHeld ? sprintSpeed : walkSpeed;
-            Vector3 targetVelocity = moveDirection * targetSpeed;
+            bool grounded = jumpIsAllowed;
+            Vector3 parentVelocity = Vector3.zero;
+
+            // Start at the parent so we never select the player's own Rigidbody.
+            if (grounded && transform.parent != null)
+            {
+                Rigidbody parentRb = transform.parent.GetComponentInParent<Rigidbody>();
+                if (parentRb != null)
+                {
+                    parentVelocity = parentRb.GetPointVelocity(rb.position);
+                    parentVelocity.y = 0f;
+                }
+            }
+
+            // Standing still matches the submarine; walking adds relative velocity.
+            Vector3 targetVelocity = parentVelocity + moveDirection * targetSpeed;
 
             Vector3 horizontalVelocity = rb.linearVelocity;
             horizontalVelocity.y = 0f;
 
             bool hasInput = moveInput.sqrMagnitude > 0.001f;
-            bool grounded = jumpIsAllowed;
 
             // Brake on the ground; preserve airborne momentum without input.
             if (grounded || hasInput)
