@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class SwitchPullSystem : MonoBehaviour, IInteractible
@@ -7,7 +8,9 @@ public class SwitchPullSystem : MonoBehaviour, IInteractible
     public float upDistance = -0.35f;
     public float downDistance = 0.35f;
     public float moveSpeed = 8f;
+    public float lockValue;
 
+    private bool isBeingHeld;
     private Vector3 startPosition;
     private Vector3 targetPosition;
     private float currentDistance;
@@ -25,6 +28,8 @@ public class SwitchPullSystem : MonoBehaviour, IInteractible
 
     void Awake()
     {
+        isBeingHeld = false;
+
         if (leverHandle == null)
         {
             leverHandle = transform;
@@ -46,12 +51,25 @@ public class SwitchPullSystem : MonoBehaviour, IInteractible
         targetPosition = startPosition + normalizedMovementAxis * currentDistance;
         leverHandle.localPosition = Vector3.Lerp(leverHandle.localPosition, targetPosition, moveSpeed * Time.deltaTime);
         value = Mathf.InverseLerp(upDistance, downDistance, currentDistance);
+
+        if (value <= lockValue & !isBeingHeld)
+        {
+            value = Mathf.Clamp01(0);
+
+            currentDistance = Mathf.Lerp(upDistance, downDistance, value);
+            targetDistance = currentDistance;
+            targetPosition = startPosition + normalizedMovementAxis * currentDistance;
+
+            leverHandle.localPosition = targetPosition;
+            isDown = value >= 0.5f;
+        }
     }
 
     public void Interact()
     {
         isDown = !isDown;
         targetDistance = isDown ? downDistance : upDistance;
+        isBeingHeld = true;
     }
 
     public void TurnOff()
@@ -77,6 +95,7 @@ public class SwitchPullSystem : MonoBehaviour, IInteractible
 
     public void Release()
     {
+        isBeingHeld = false;
     }
 
     private void SetTargetDistance(float distance)

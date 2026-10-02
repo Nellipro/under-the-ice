@@ -8,10 +8,12 @@ public class SwitchRotateSystem : MonoBehaviour, IInteractible
     public float downAngle = 35f;
     public float moveSpeed = 8f;
     public float rayAngleOffset;
+    public float lockValue;
 
     private Quaternion startRotation;
     private float targetAngle;
     private float currentAngle;
+    private bool isBeingHeld;
     private bool isDown;
 
     public float value = 0;
@@ -33,6 +35,7 @@ public class SwitchRotateSystem : MonoBehaviour, IInteractible
         targetAngle = upAngle;
         currentAngle = upAngle;
         value = 0f;
+        isBeingHeld = false;
     }
 
     void Update()
@@ -41,12 +44,25 @@ public class SwitchRotateSystem : MonoBehaviour, IInteractible
         Quaternion targetRotation = startRotation * Quaternion.AngleAxis(targetAngle, rotationAxis.normalized);
         leverHandle.localRotation = Quaternion.Slerp(leverHandle.localRotation, targetRotation, moveSpeed * Time.deltaTime);
         value = Mathf.InverseLerp(upAngle, downAngle, currentAngle);
+
+        if (value <= lockValue & !isBeingHeld)
+        {
+            value = Mathf.Clamp01(0);
+
+            currentAngle = Mathf.Lerp(upAngle, downAngle, value);
+            targetAngle = currentAngle;
+            targetRotation = startRotation * Quaternion.AngleAxis(targetAngle, rotationAxis.normalized);
+
+            leverHandle.localRotation = targetRotation;
+            isDown = value >= 0.5f;
+        }
     }
 
     public void Interact()
     {
         isDown = !isDown;
         targetAngle = isDown ? downAngle : upAngle;
+        isBeingHeld = true;
     }
 
     public void TurnOff()
@@ -71,5 +87,6 @@ public class SwitchRotateSystem : MonoBehaviour, IInteractible
 
     public void Release()
     {
+        isBeingHeld = false;
     }
 }
