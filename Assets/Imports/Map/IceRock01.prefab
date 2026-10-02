@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5931820695037510524}
   - component: {fileID: 25429950375620310}
   - component: {fileID: 8403908832533007621}
-  - component: {fileID: 8407362371979711227}
+  - component: {fileID: 7225587644626848602}
   m_Layer: 0
-  m_Name: Rock01
+  m_Name: IceRock01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3e874f5f5a25e7a45924f2315612f5bd, type: 2}
+  - {fileID: 2100000, guid: c80e3322981dd7f4e8abc4e6b58f4d77, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,7 +91,7 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8407362371979711227
+--- !u!64 &7225587644626848602
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
