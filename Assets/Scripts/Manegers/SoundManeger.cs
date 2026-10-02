@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManeger : MonoBehaviour
 {
@@ -15,11 +16,12 @@ public class SoundManeger : MonoBehaviour
         }
     }
 
-    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
+    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume, AudioMixerGroup outputGroup = null)
     {
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
 
         audioSource.clip = audioClip;
+        audioSource.outputAudioMixerGroup = outputGroup;
 
         audioSource.volume = volume;
 

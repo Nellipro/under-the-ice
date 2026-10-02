@@ -67,4 +67,9 @@ public class Reactor : MonoBehaviour
             overLoaded = true;
         }
     }
+
+    public void Overload()
+    {
+        overLoaded = true;
+    }
 }
