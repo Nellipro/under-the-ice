@@ -485,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44d8ceae56e9ee45ba5facc4bff0ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SubmarineMovement
-  thisShip: {fileID: 0}
+  thisShip: {fileID: 1674532249955134330}
   rb: {fileID: 1257547902577694024}
   forwardLever: {fileID: 4369712074416519065}
   backwardLever: {fileID: 5244930225405212963}
@@ -1271,8 +1271,85 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5631687420717154738, guid: c31fc0076a3b9744dba900eedd1e6858, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3469123623146872238}
   m_SourcePrefab: {fileID: 100100000, guid: c31fc0076a3b9744dba900eedd1e6858, type: 3}
+--- !u!114 &3036938666446341508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3850965135746587438, guid: c31fc0076a3b9744dba900eedd1e6858, type: 3}
+  m_PrefabInstance: {fileID: 2257499421257768618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5869309738790543128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042722699a4031e42bd8fdaf39b584ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SonarSystem
+--- !u!4 &3546853648978952842 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3345272207500139552, guid: c31fc0076a3b9744dba900eedd1e6858, type: 3}
+  m_PrefabInstance: {fileID: 2257499421257768618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5869309738790543128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5631687420717154738, guid: c31fc0076a3b9744dba900eedd1e6858, type: 3}
+  m_PrefabInstance: {fileID: 2257499421257768618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3469123623146872238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5869309738790543128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc9e997e7134ff5a6536d306b0e9396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SonarStimulus
+  isEmitting: 0
+  attackPoint: {fileID: 3546853648978952842}
+  onAttacked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3469123623146872238}
+        m_TargetAssemblyTypeName: SonarStimulus, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3036938666446341508}
+        m_TargetAssemblyTypeName: SonarSystem, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9208624037046379635}
+        m_TargetAssemblyTypeName: Reactor, Assembly-CSharp
+        m_MethodName: Overload
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &7596957668858065127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8519103488507965005, guid: c31fc0076a3b9744dba900eedd1e6858, type: 3}
