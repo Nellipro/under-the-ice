@@ -121,6 +121,18 @@ AudioMixerController:
   - guid: a3a156a5b54e4b84980af75ac60dd42f
     name: MuteButtonVolume
     atten: 0
+  - guid: 2fc65282980724f4a8f816d7f8b3b851
+    name: MasterVolume
+    atten: 0
+  - guid: 07ac839fa289bf44c9018a0181f66ec8
+    name: MusicVolume
+    atten: 0
+  - guid: 2eae8e841c506c84b8183c753331bbd7
+    name: SFXVolume
+    atten: 0
+  - guid: ddfea16e6568afe4db96ccad499c28c2
+    name: VoicesVolume
+    atten: 0
   m_AudioMixerGroupViews:
   - guids:
     - fd366a0ee13ea6f44a749a0f6803f457
