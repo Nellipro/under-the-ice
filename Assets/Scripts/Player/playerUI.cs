@@ -22,6 +22,7 @@ public class playerUI : MonoBehaviour
     }
     void OnEscape(InputValue value)
     {
+        Debug.Log("Escape key pressed");
         showEscapeMenu = !showEscapeMenu;
     }
     // Update is called once per frame

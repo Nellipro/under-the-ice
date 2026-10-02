@@ -2209,58 +2209,13 @@ PrefabInstance:
     - {fileID: 5502077674321008682, guid: 729a5bad019535d4e910796bf17c9969, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2247546656597089575, guid: 729a5bad019535d4e910796bf17c9969, type: 3}
-      insertIndex: 6
-      addedObject: {fileID: 4328415174129157120}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 729a5bad019535d4e910796bf17c9969, type: 3}
---- !u!1 &3526699537100307729 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9073648382569994046, guid: 729a5bad019535d4e910796bf17c9969, type: 3}
-  m_PrefabInstance: {fileID: 5556678509763766831}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &3677808067567264333 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 9085866398024829026, guid: 729a5bad019535d4e910796bf17c9969, type: 3}
-  m_PrefabInstance: {fileID: 5556678509763766831}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5921576468899575560 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2247546656597089575, guid: 729a5bad019535d4e910796bf17c9969, type: 3}
   m_PrefabInstance: {fileID: 5556678509763766831}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4328415174129157120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5921576468899575560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40470404d80c75b4cbf27031fa2e2102, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::player
-  speed: 500
-  jumpPower: 5
-  mouseSensitivity: 1
-  walkSpeed: 5
-  sprintSpeed: 8
-  groundAcceleration: 35
-  groundBraking: 45
-  airAcceleration: 8
-  playerCamera: {fileID: 3526699537100307729}
-  oxygen: 100
-  maxOxygen: 100
-  playerUI: {fileID: 6272878940185562476}
-  isInAir: 1
-  moveInput: {x: 0, y: 0}
-  viewInput: {x: 0, y: 0}
-  jumpPressed: 0
-  jumpIsAllowed: 1
-  crouchPressed: 0
-  rb: {fileID: 3677808067567264333}
-  groundCheckPos: {fileID: 8718217699819336972}
 --- !u!20 &6111919096271337900 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1859053861426811779, guid: 729a5bad019535d4e910796bf17c9969, type: 3}
@@ -2280,11 +2235,6 @@ MonoBehaviour:
 --- !u!4 &6384356175090280833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1550508996112663470, guid: 729a5bad019535d4e910796bf17c9969, type: 3}
-  m_PrefabInstance: {fileID: 5556678509763766831}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8718217699819336972 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3882135196572917539, guid: 729a5bad019535d4e910796bf17c9969, type: 3}
   m_PrefabInstance: {fileID: 5556678509763766831}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5981561329220000740

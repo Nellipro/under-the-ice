@@ -172,9 +172,9 @@ GameObject:
   - component: {fileID: 741850891180386845}
   - component: {fileID: 9085866398024829026}
   - component: {fileID: 5370525600614465206}
-  - component: {fileID: 5502077674321008682}
-  - component: {fileID: -1861324667706468848}
+  - component: {fileID: 2905162039833060134}
   - component: {fileID: 1878273187520587587}
+  - component: {fileID: -1861324667706468848}
   m_Layer: 27
   m_Name: Tony
   m_TagString: Untagged
@@ -325,7 +325,7 @@ MonoBehaviour:
   InteractLayers:
     serializedVersion: 2
     m_Bits: 134217783
---- !u!114 &5502077674321008682
+--- !u!114 &2905162039833060134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -334,24 +334,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 2247546656597089575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95c14540bbd2c114b9bcea49a3eaaf44, type: 3}
+  m_Script: {fileID: 11500000, guid: 40470404d80c75b4cbf27031fa2e2102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::player
-  speed: 20
+  speed: 500
   jumpPower: 5
   mouseSensitivity: 1
-  playerCamera: {fileID: 9073648382569994046}
+  walkSpeed: 5
+  sprintSpeed: 8
+  groundAcceleration: 35
+  groundBraking: 45
+  airAcceleration: 8
+  playerCamera: {fileID: 0}
   oxygen: 100
   maxOxygen: 100
   playerUI: {fileID: 0}
   isInAir: 1
   moveInput: {x: 0, y: 0}
   viewInput: {x: 0, y: 0}
-  jumpPressed: 0
+  jumpPressed: 1
   jumpIsAllowed: 1
   crouchPressed: 0
-  rb: {fileID: 9085866398024829026}
-  groundCheckPos: {fileID: 3882135196572917539}
+  rb: {fileID: 0}
+  groundCheckPos: {fileID: 0}
+--- !u!114 &1878273187520587587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247546656597089575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684b2e2cf61c52d43a7d121cb28b4ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::playerUI
+  showEscapeMenu: 0
+  EscapeMenu: {fileID: 0}
+  DebugInfoShown: 0
+  DebugInfo: {fileID: 0}
 --- !u!114 &-1861324667706468848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,22 +403,6 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1878273187520587587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2247546656597089575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 684b2e2cf61c52d43a7d121cb28b4ba7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::playerUI
-  showEscapeMenu: 0
-  EscapeMenu: {fileID: 0}
-  DebugInfoShown: 1
-  DebugInfo: {fileID: 0}
 --- !u!1 &9073648382569994046
 GameObject:
   m_ObjectHideFlags: 0
