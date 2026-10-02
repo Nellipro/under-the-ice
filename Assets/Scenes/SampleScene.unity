@@ -7305,7 +7305,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1065237225545332608, guid: cca4becbd19df1646abc91bf5c1fab5c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262674408464831850, guid: cca4becbd19df1646abc91bf5c1fab5c, type: 3}
+      propertyPath: m_text
+      value: TimeScale1
       objectReference: {fileID: 0}
     - target: {fileID: 2696744146364949330, guid: cca4becbd19df1646abc91bf5c1fab5c, type: 3}
       propertyPath: m_Sprite
@@ -7514,6 +7518,26 @@ PrefabInstance:
     - target: {fileID: 6581039952652132461, guid: cca4becbd19df1646abc91bf5c1fab5c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168044367618314601, guid: cca4becbd19df1646abc91bf5c1fab5c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168044367618314601, guid: cca4becbd19df1646abc91bf5c1fab5c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 485434256}
+    - target: {fileID: 7168044367618314601, guid: cca4becbd19df1646abc91bf5c1fab5c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: timescale
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168044367618314601, guid: cca4becbd19df1646abc91bf5c1fab5c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UserInterfaceInGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168044367618314601, guid: cca4becbd19df1646abc91bf5c1fab5c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7204241378871403633, guid: cca4becbd19df1646abc91bf5c1fab5c, type: 3}
       propertyPath: m_AnchorMax.x

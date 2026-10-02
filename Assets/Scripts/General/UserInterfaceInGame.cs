@@ -24,4 +24,8 @@ public void Awake() {Time.timeScale = 1f;}
         escMenuDialog.SetActive(false); // Hide the escape menu dialog
         EventSystem.current.SetSelectedGameObject(escMenuFirstSelected);
     }
+    public void timescale(float time)
+    {
+        Time.timeScale = time;
+    }
 }
