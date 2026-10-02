@@ -5,6 +5,7 @@ public class UserInterfaceInGame : MonoBehaviour
     [SerializeField] private GameObject mainMenuDialog; 
     [SerializeField] private GameObject escMenuDialog; 
     [SerializeField] private GameObject escMenuFirstSelected;
+public void Awake() {Time.timeScale = 1f;}
     public void MainMenuDialog()
     {
         mainMenuDialog.SetActive(true); // Show the main menu dialog

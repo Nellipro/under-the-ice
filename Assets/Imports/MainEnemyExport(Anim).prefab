@@ -2070,6 +2070,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5730687708968071329}
+  - component: {fileID: 6118844290394072246}
+  - component: {fileID: 3447025538101482140}
   m_Layer: 0
   m_Name: MainEnemyExport(Anim)
   m_TagString: Untagged
@@ -2098,6 +2100,80 @@ Transform:
   - {fileID: 8009741909712751014}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &6118844290394072246
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6500125800844693845}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &3447025538101482140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6500125800844693845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28edc22b7ea460b83ecbbc3bc928b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnderwaterEnemyAI
+  behaviour: 0
+  waypointNetwork: {fileID: 0}
+  playerTarget: {fileID: 0}
+  swimSpeed: 30
+  acceleration: 14
+  turnSpeed: 1
+  waypointTolerance: 1
+  pathRefreshInterval: 0.75
+  playerDetectionDistance: 100
+  sonarFearDistance: 25
+  playerAttackDistance: 2
+  sonarDetectionDistance: 40
+  sonarLoseDistance: 55
+  sonarAttackDistance: 2.5
+  attackInterval: 20
+  onPlayerAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onSonarAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  currentState: 0
+  drawCurrentPath: 1
 --- !u!1 &6643301058133804569
 GameObject:
   m_ObjectHideFlags: 0

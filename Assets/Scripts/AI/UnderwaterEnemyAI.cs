@@ -32,6 +32,8 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
     [SerializeField, Min(0.1f)] private float acceleration = 8f;
     [SerializeField, Min(0.1f)] private float turnSpeed = 4f;
     [SerializeField, Min(0.05f)] private float waypointTolerance = 1f;
+    [Tooltip("Collider used to decide when the enemy has reached a waypoint. If empty, the first child collider is used.")]
+    [SerializeField] private Collider arrivalCollider;
     [SerializeField, Min(0.1f)] private float pathRefreshInterval = 0.75f;
 
     [Header("Player Hunter")]
@@ -67,6 +69,11 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
     private void Awake()
     {
         body = GetComponent<Rigidbody>();
+        if (arrivalCollider == null)
+        {
+            arrivalCollider = GetComponentInChildren<Collider>();
+        }
+
         body.useGravity = false;
         SetState(EnemyState.Patrol);
     }
@@ -81,7 +88,11 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
             return;
         }
 
-        if (Time.time >= nextPathRefreshTime || currentPath.Count == 0)
+        bool pathFinished = currentPath.Count == 0 || pathIndex >= currentPath.Count;
+        bool followsMovingTarget = currentState != EnemyState.Patrol;
+        bool movingTargetPathExpired = followsMovingTarget && Time.time >= nextPathRefreshTime;
+
+        if (pathFinished || movingTargetPathExpired)
         {
             RefreshPath();
             nextPathRefreshTime = Time.time + pathRefreshInterval;
@@ -96,23 +107,25 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
             return;
         }
 
-        Vector3 toWaypoint = currentPath[pathIndex] - body.position;
-        if (toWaypoint.magnitude <= waypointTolerance)
+        // A path can begin with a node that is already inside the enemy. Advance
+        // through every reached node now instead of spending a frame targeting it.
+        while (pathIndex < currentPath.Count && HasReachedWaypoint(currentPath[pathIndex]))
         {
             pathIndex++;
-            if (pathIndex >= currentPath.Count)
-            {
-                if (currentState == EnemyState.Patrol)
-                {
-                    hasPatrolDestination = false;
-                }
+        }
 
-                SlowDown();
-                return;
+        if (pathIndex >= currentPath.Count)
+        {
+            if (currentState == EnemyState.Patrol)
+            {
+                hasPatrolDestination = false;
             }
 
-            toWaypoint = currentPath[pathIndex] - body.position;
+            SlowDown();
+            return;
         }
+
+        Vector3 toWaypoint = currentPath[pathIndex] - body.position;
 
         Vector3 direction = toWaypoint.normalized;
         Vector3 desiredVelocity = direction * swimSpeed;
@@ -259,7 +272,9 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
                     hasPatrolDestination = true;
                 }
 
-                newPath = FindPath(patrolDestination);
+                newPath = waypointNetwork != null
+                    ? waypointNetwork.FindPatrolPath(transform.position, patrolDestination)
+                    : FindPath(patrolDestination);
                 break;
         }
 
@@ -331,6 +346,19 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
             body.linearVelocity,
             Vector3.zero,
             acceleration * Time.fixedDeltaTime);
+    }
+
+    private bool HasReachedWaypoint(Vector3 waypoint)
+    {
+        if (arrivalCollider == null || !arrivalCollider.enabled)
+        {
+            return Vector3.Distance(body.position, waypoint) <= waypointTolerance;
+        }
+
+        // ClosestPoint equals the waypoint while it is inside the collider. The
+        // tolerance slightly expands that volume so the creature turns early.
+        Vector3 closestPoint = arrivalCollider.ClosestPoint(waypoint);
+        return (closestPoint - waypoint).sqrMagnitude <= waypointTolerance * waypointTolerance;
     }
 
     private void SetState(EnemyState newState)

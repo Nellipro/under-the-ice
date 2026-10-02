@@ -89,16 +89,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1674532249955134330
-Transform:
+--- !u!224 &1674532249955134330
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8918902031197224382}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.78492934, z: -0, w: -0.6195853}
+  m_LocalPosition: {x: 0, y: 0, z: -246.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -107,7 +106,12 @@ Transform:
   - {fileID: 2170808399535464519}
   - {fileID: 8134939692949815604}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 256.572, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -824.25, y: 14.29}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6520121821640072828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44d8ceae56e9ee45ba5facc4bff0ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SubmarineMovement
-  thisShip: {fileID: 1674532249955134330}
+  thisShip: {fileID: 0}
   rb: {fileID: 1257547902577694024}
   forwardLever: {fileID: 4369712074416519065}
   backwardLever: {fileID: 5244930225405212963}
@@ -707,10 +711,6 @@ PrefabInstance:
       propertyPath: pulsePrefab
       value: 
       objectReference: {fileID: 7232300150130036688, guid: 3428dead1d5940741a4b1b66861b238b, type: 3}
-    - target: {fileID: 3850965135746587438, guid: c31fc0076a3b9744dba900eedd1e6858, type: 3}
-      propertyPath: sonarOrigin
-      value: 
-      objectReference: {fileID: 1674532249955134330}
     - target: {fileID: 3850965135746587438, guid: c31fc0076a3b9744dba900eedd1e6858, type: 3}
       propertyPath: speedModifier
       value: 4

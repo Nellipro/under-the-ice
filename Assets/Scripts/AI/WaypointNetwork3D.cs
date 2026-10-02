@@ -97,6 +97,35 @@ public sealed class WaypointNetwork3D : MonoBehaviour
     }
 
     /// <summary>
+    /// Returns an unsmoothed route through the waypoint graph. Patrols use this
+    /// so that they visit the network nodes instead of taking direct shortcuts.
+    /// </summary>
+    public List<Vector3> FindPatrolPath(Vector3 start, Vector3 target)
+    {
+        UnderwaterWaypoint startNode = FindClosestVisibleWaypoint(start);
+        UnderwaterWaypoint targetNode = FindClosestVisibleWaypoint(target);
+
+        if (startNode == null || targetNode == null)
+        {
+            return new List<Vector3>();
+        }
+
+        List<UnderwaterWaypoint> nodePath = FindNodePath(startNode, targetNode);
+        if (nodePath.Count == 0)
+        {
+            return new List<Vector3>();
+        }
+
+        var result = new List<Vector3>(nodePath.Count);
+        foreach (UnderwaterWaypoint node in nodePath)
+        {
+            result.Add(node.transform.position);
+        }
+
+        return result;
+    }
+
+    /// <summary>
     /// Chooses a waypoint away from a threat and returns a path to it.
     /// </summary>
     public List<Vector3> FindFleePath(Vector3 start, Vector3 threatPosition)
