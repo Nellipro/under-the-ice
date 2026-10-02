@@ -5,15 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/nya.unity
-    guid: 4bac887159f04d346a80e1f775ec48cb
   - enabled: 1
     path: Assets/Menu/MainMenu.unity
     guid: 536883ffa07b8d84f9a86c6459728963
   - enabled: 1
+    path: Assets/Scenes/TutScene.unity
+    guid: f74054f615851cd4d933a3198f57a73f
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
+    path: Assets/Scenes/nya.unity
+    guid: 4bac887159f04d346a80e1f775ec48cb
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

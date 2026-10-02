@@ -2,6 +2,7 @@ using System.Data.Common;
 using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SwitchObject : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class SwitchObject : MonoBehaviour
     public bool isReactor;
     public bool isSonar;
     public bool isOnPlayer;
+    public bool isMuteButton;
 
     [Header("for door and blastshield")]
     public Transform openPos;
@@ -37,6 +39,11 @@ public class SwitchObject : MonoBehaviour
     [Header("for Sonar")]
     public SonarSystem sonarSystem;
 
+    [Header("for Mute")]
+    public AudioMixer audioMixer;
+    public string muteVolumeParameter = "MuteButtonVolume";
+    public float mutedVolume = -80f;
+    public float unmutedVolume = 0f;
 
 
 
@@ -112,6 +119,14 @@ public class SwitchObject : MonoBehaviour
             {
                 sonarSystem.OnSonar();
             }
+
+            if(isMuteButton)
+            {
+                if (audioMixer != null)
+                {
+                    audioMixer.SetFloat(muteVolumeParameter, mutedVolume);
+                }
+            }
         }
         else
         {
@@ -128,6 +143,14 @@ public class SwitchObject : MonoBehaviour
             if(isEngine)
             {
                 submarine.isActive = false;
+            }
+
+            if(isMuteButton)
+            {
+                if (audioMixer != null)
+                {
+                    audioMixer.SetFloat(muteVolumeParameter, unmutedVolume);
+                }
             }
         }
 

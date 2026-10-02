@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 
 
 public class SonarSystem : MonoBehaviour
@@ -18,6 +19,7 @@ public class SonarSystem : MonoBehaviour
     [SerializeField] private int longitudePoints;
     [SerializeField] private GameObject hitPrefab;
     [SerializeField] private AudioClip PulseAudio;
+    [SerializeField] private AudioMixerGroup soundGroup;
     private float hitPrefabLifetime;
     private float cooldownTimer;
     public Transform pulseParant;
@@ -51,7 +53,7 @@ public class SonarSystem : MonoBehaviour
             return;
         }
 
-        SoundManeger.instance.PlaySoundFXClip(PulseAudio, transform, 1f);
+        SoundManeger.instance.PlaySoundFXClip(PulseAudio, transform, 1f, soundGroup);
 
         cooldownTimer = pulseCooldown;
         Vector3 origin = sonarOrigin != null ? sonarOrigin.position : transform.position;
