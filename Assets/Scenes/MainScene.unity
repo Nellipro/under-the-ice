@@ -14310,7 +14310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1595505434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16836,11 +16836,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3447025538101482140, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
       propertyPath: onPlayerAttack.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3447025538101482140, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
       propertyPath: onPlayerAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3447025538101482140, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
       propertyPath: onPlayerAttack.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -16849,7 +16849,7 @@ PrefabInstance:
     - target: {fileID: 3447025538101482140, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
       propertyPath: onPlayerAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1006858135}
+      objectReference: {fileID: 1595505434}
     - target: {fileID: 3447025538101482140, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
       propertyPath: onPlayerAttack.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -16860,7 +16860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3447025538101482140, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
       propertyPath: onPlayerAttack.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetParent
+      value: Reload
       objectReference: {fileID: 0}
     - target: {fileID: 3447025538101482140, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
       propertyPath: onPlayerAttack.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -16868,7 +16868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3447025538101482140, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
       propertyPath: onPlayerAttack.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Transform, UnityEngine
+      value: SceneFadeReloader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3447025538101482140, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
       propertyPath: onPlayerAttack.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -16877,14 +16877,14 @@ PrefabInstance:
     - target: {fileID: 3447025538101482140, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
       propertyPath: onPlayerAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 324722290}
+      objectReference: {fileID: 0}
     - target: {fileID: 3447025538101482140, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
       propertyPath: onPlayerAttack.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3447025538101482140, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
       propertyPath: onPlayerAttack.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Transform, UnityEngine
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3447025538101482140, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
       propertyPath: onPlayerAttack.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -18806,7 +18806,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   drawConnections: 1
-  drawConnectionsAlways: 1
+  drawConnectionsAlways: 0
 --- !u!4 &2039816795
 Transform:
   m_ObjectHideFlags: 0
@@ -18816,7 +18816,7 @@ Transform:
   m_GameObject: {fileID: 2039816793}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 130, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30669,6 +30669,10 @@ PrefabInstance:
       propertyPath: m_ClearFlags
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6111919096271337900, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+      propertyPath: far clip plane
+      value: 15000
+      objectReference: {fileID: 0}
     - target: {fileID: 6212325071428187296, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
       propertyPath: playerUI
       value: 
@@ -30733,6 +30737,10 @@ PrefabInstance:
       propertyPath: m_ClearFlags
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6737793768202789541, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+      propertyPath: far clip plane
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 7193326616447940581, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
       propertyPath: m_RenderingLayerMask
       value: 2
@@ -30768,6 +30776,10 @@ PrefabInstance:
     - target: {fileID: 8500345706989707700, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
       propertyPath: m_ClearFlags
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500345706989707700, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+      propertyPath: far clip plane
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 8918902031197224382, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
       propertyPath: m_Name

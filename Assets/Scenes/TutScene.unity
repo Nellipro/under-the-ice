@@ -13076,7 +13076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1595505434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18511,6 +18511,34 @@ PrefabInstance:
       propertyPath: thisShip
       value: 
       objectReference: {fileID: 324722290}
+    - target: {fileID: 6737793768202789541, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+      propertyPath: far clip plane
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299346335947737353, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 6902504428574417100}
+    - target: {fileID: 7299346335947737353, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+      propertyPath: playerUI
+      value: 
+      objectReference: {fileID: 6902504428574417099}
+    - target: {fileID: 7299346335947737353, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+      propertyPath: jumpPressed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299346335947737353, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 6902504428574417098}
+    - target: {fileID: 7299346335947737353, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+      propertyPath: groundCheckPos
+      value: 
+      objectReference: {fileID: 6902504428574417097}
+    - target: {fileID: 8500345706989707700, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+      propertyPath: far clip plane
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 8918902031197224382, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
       propertyPath: m_Name
       value: Submarine
@@ -18559,6 +18587,32 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+--- !u!4 &6902504428574417097 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8718217699819336972, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+  m_PrefabInstance: {fileID: 6902504428574417096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6902504428574417098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3526699537100307729, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+  m_PrefabInstance: {fileID: 6902504428574417096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6902504428574417099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6272878940185562476, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+  m_PrefabInstance: {fileID: 6902504428574417096}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96138684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684b2e2cf61c52d43a7d121cb28b4ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::playerUI
+--- !u!54 &6902504428574417100 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3677808067567264333, guid: 395c7206efa70354caf33c436fba9bc6, type: 3}
+  m_PrefabInstance: {fileID: 6902504428574417096}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -45,7 +45,7 @@ public class player : MonoBehaviour
     [SerializeField] private Transform groundCheckPos;
     #endregion
 #region Input Methods
-void OnEscape(InputValue value) {Debug.Log("Escape key pressed");}
+
     void OnSprint(InputValue value)
     {
         sprintHeld = value.isPressed;
