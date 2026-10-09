@@ -137,6 +137,21 @@ public class SecurityCamras : MonoBehaviour, IInteractible
             playerUI.SetCameraViewerOpen(false);
         }
 
+        if (previousButton != null)
+        {
+            previousButton.onClick.RemoveListener(ShowPreviousCamera);
+        }
+
+        if (nextButton != null)
+        {
+            nextButton.onClick.RemoveListener(ShowNextCamera);
+        }
+
+        if (closeButton != null)
+        {
+            closeButton.onClick.RemoveListener(CloseViewer);
+        }
+
         if (playerCamera != null)
         {
             playerCamera.enabled = originalPlayerCameraState;
