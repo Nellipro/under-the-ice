@@ -67,10 +67,10 @@ public class PlayerInteractSystem : MonoBehaviour
 
     IInteractible GetInteractable(out RaycastHit hitInfo)
     {
-        origin = InteractSource.position;
-        dir = InteractSource.forward;
+        Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+        origin = r.origin;
+        dir = r.direction;
 
-        Ray r = new Ray(origin, dir);
         if (Physics.Raycast(r, out hitInfo, InteractRange, InteractLayers) &&
             hitInfo.collider.gameObject.TryGetComponent(out IInteractible interactObj))
         {

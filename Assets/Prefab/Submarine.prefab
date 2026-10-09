@@ -52,9 +52,6 @@ MonoBehaviour:
   sodiumPickUp: {fileID: 4864945642233347762}
   sodiumDropPoint: {fileID: 6287672228238654448}
   sodiumModel: {fileID: 4149772497061334061}
-  startPos: {fileID: 3240364796922969335}
-  endPos: {fileID: 5067879045515154589}
-  moveSpeed: 9999
   secondInteractionHappened: 0
   onSecondInteraction:
     m_PersistentCalls:
@@ -696,7 +693,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1072426686863454630, guid: 9d3afcceb406bfe4b9f38595a92ac532, type: 3}
+    - {fileID: 2118642914177747135, guid: 9d3afcceb406bfe4b9f38595a92ac532, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

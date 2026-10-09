@@ -1,17 +1,13 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SodiumManeger : MonoBehaviour, IInteractible
+public class SodiumManeger : MonoBehaviour
 {
     Vector3 vector3Object;
     public GameObject sodiumPickUp;
     public GameObject sodiumDropPoint;
     public GameObject sodiumModel;
-    [Space]
-    [Space]
-    [Space]
-    [Space]
-    [Space]
+    public bool secondInteractionHappened;
     [Space]
     [Space]
     [Space]
@@ -19,46 +15,65 @@ public class SodiumManeger : MonoBehaviour, IInteractible
     public Transform endPos;
     public float moveSpeed = 8f;
     private Transform target;
-    private bool hasInteracted;
-    public bool secondInteractionHappened;
 
     [Header("Second interaction")]
     public UnityEvent onSecondInteraction;
 
     void Awake()
     {
-        sodiumModel.SetActive(false);
         vector3Object = gameObject.transform.position;
-        target = startPos.transform;  
+        target = endPos.transform;
+        if (sodiumModel != null)
+        {
+            sodiumModel.SetActive(false);
+        }
     }
 
     void Update()
     {
         float step =  moveSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.position, step);    
+        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+
+        if (secondInteractionHappened)
+        {
+            target = startPos.transform;
+        }
+        else if (!secondInteractionHappened)
+        {
+            target = endPos.transform;
+        }
     }
 
-    public void Interact()
+    public void PickUp()
     {
-        if (!hasInteracted)
+        if (secondInteractionHappened || sodiumModel == null)
         {
-            hasInteracted = true;
-            target = endPos;
             return;
+        }
+
+        sodiumModel.SetActive(true);
+        if (sodiumPickUp != null)
+        {
+            sodiumPickUp.SetActive(false);
+        }
+    }
+
+    public void Place()
+    {
+        if (secondInteractionHappened || sodiumModel == null || !sodiumModel.activeSelf)
+        {
+            return;
+        }
+
+        if (sodiumDropPoint != null)
+        {
+            sodiumModel.transform.SetPositionAndRotation(
+                sodiumDropPoint.transform.position,
+                sodiumDropPoint.transform.rotation);
         }
 
         secondInteractionHappened = true;
         onSecondInteraction?.Invoke();
-    }
-
-    public void Pull(Vector3 rayHitPoint)
-    {
-        
-    }
-
-    public void Release()
-    {
-        
     }
 
 }
