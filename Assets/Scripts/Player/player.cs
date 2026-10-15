@@ -18,6 +18,7 @@ public class player : MonoBehaviour
     
     [Header("Camera Settings")]
     [SerializeField] private GameObject playerCamera;
+    [SerializeField] private GameObject SubOverlayCamera;
     private float camPitch;
     [Header("Oxygen Settings")]
     //[SerializeField] private GameObject UnderwaterEffect;
@@ -139,7 +140,14 @@ public class player : MonoBehaviour
         freezeCam = playerUI.ShowUI;
         //raycast beneath players feet to check if they are in air or not
         jumpIsAllowed = Physics.Raycast(groundCheckPos.position, Vector3.down, 0.25f);
-
+        if (isInAir)
+        {
+            SubOverlayCamera.SetActive(true);
+        }
+        else
+        {
+            SubOverlayCamera.SetActive(false);
+        }
     }
     void FixedUpdate()
     {
