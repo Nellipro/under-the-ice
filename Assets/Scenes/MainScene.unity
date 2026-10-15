@@ -23154,6 +23154,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2375703608112424605, guid: 729a5bad019535d4e910796bf17c9969, type: 3}
+      propertyPath: m_VolumeLayerMask.m_Bits
+      value: 2049
+      objectReference: {fileID: 0}
     - target: {fileID: 2442647113905485468, guid: 729a5bad019535d4e910796bf17c9969, type: 3}
       propertyPath: m_Range
       value: 100
