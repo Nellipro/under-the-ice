@@ -11822,7 +11822,7 @@ GameObject:
   - component: {fileID: 895937977}
   - component: {fileID: 895937976}
   - component: {fileID: 895937975}
-  m_Layer: 27
+  m_Layer: 0
   m_Name: OutsideSodium (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26075,6 +26075,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6007147279004958152, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
+      propertyPath: m_LODs.Array.data[0].renderers.Array.data[0].renderer
+      value: 
+      objectReference: {fileID: 1630794972795428178, guid: 7981af66e0883144e81af4913e46132b, type: 3}
     - target: {fileID: 6073766724087955892, guid: 4bc92bd4306fa784c819f818050d2be5, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -205791,8 +205795,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5484461098658486046, guid: 7764fe1ad5810844da9caab9d4ffc18f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4486534053703650579}
   m_SourcePrefab: {fileID: 100100000, guid: 7764fe1ad5810844da9caab9d4ffc18f, type: 3}
+--- !u!1 &4486534053703650578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5484461098658486046, guid: 7764fe1ad5810844da9caab9d4ffc18f, type: 3}
+  m_PrefabInstance: {fileID: 4486534053703650577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!205 &4486534053703650579
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4486534053703650578}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!23 &4506678687750978506
 MeshRenderer:
   m_ObjectHideFlags: 0

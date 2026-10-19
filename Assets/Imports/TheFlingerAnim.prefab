@@ -74,6 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6856499283972346640}
   - component: {fileID: 8977375040788773440}
+  - component: {fileID: 4386914187935441675}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -164,6 +165,27 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.07210815, y: 1.0825974, z: -0.15608692}
     m_Extent: {x: 1.920063, y: 1.2691737, z: 1.7982605}
   m_DirtyAABB: 0
+--- !u!205 &4386914187935441675
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2162781441486678306}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!1 &2786964053348645488
 GameObject:
   m_ObjectHideFlags: 0

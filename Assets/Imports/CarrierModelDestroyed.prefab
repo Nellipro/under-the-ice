@@ -3277,6 +3277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4466466491297394815}
   - component: {fileID: 3659112656284056893}
+  - component: {fileID: 5960485006826478272}
   m_Layer: 0
   m_Name: CarierBody
   m_TagString: Untagged
@@ -3438,6 +3439,25 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00000008940697, y: 0.08742979, z: 0.15574053}
     m_Extent: {x: 0.2765199, y: 0.20276096, z: 0.99543357}
   m_DirtyAABB: 0
+--- !u!205 &5960485006826478272
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8185489685621808570}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.76981986, y: -0.12660567, z: 0.26993936}
+  m_Size: 0.13837072
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: -3952452943443104997, guid: 8034d5291b6f7ab42b4809433e2b0434, type: 3}
+  m_Enabled: 1
 --- !u!1 &8212107913165948412
 GameObject:
   m_ObjectHideFlags: 0

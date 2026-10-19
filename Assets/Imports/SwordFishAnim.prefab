@@ -120,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 3101779201399078396}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.33, y: -0.00000017353796, z: 27.14}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -724,6 +724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3830745765931242718}
   - component: {fileID: 3235963056220269026}
+  - component: {fileID: 7149878719931178327}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -820,3 +821,22 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00000031292439, y: 0.44212633, z: -0.49479067}
     m_Extent: {x: 0.42081404, y: 0.91686636, z: 2.4530811}
   m_DirtyAABB: 0
+--- !u!205 &7149878719931178327
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9178647067759187990}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -2.7766666, y: 0.035389304, z: -9.079575}
+  m_Size: 4.92787
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1630794972795428178, guid: 4bf8d5ef74d09f1448d6028c53d6627e, type: 3}
+  m_Enabled: 1

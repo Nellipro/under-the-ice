@@ -1288,6 +1288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6972387728694816633}
   - component: {fileID: 3012188732332012232}
+  - component: {fileID: 4618460633277600598}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -1418,6 +1419,25 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.033154994, y: 0.12192242, z: -0.05253011}
     m_Extent: {x: 0.5419357, y: 0.3579486, z: 1.4194295}
   m_DirtyAABB: 0
+--- !u!205 &4618460633277600598
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3969500084840291452}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.041168146, y: 0.00031620264, z: -0.0045561716}
+  m_Size: 0.05
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.26855543
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1630794972795428178, guid: 7981af66e0883144e81af4913e46132b, type: 3}
+  m_Enabled: 1
 --- !u!1 &4186071516631819359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,6 +2166,7 @@ MonoBehaviour:
   acceleration: 14
   turnSpeed: 1
   waypointTolerance: 1
+  arrivalCollider: {fileID: 0}
   pathRefreshInterval: 0.75
   playerDetectionDistance: 100
   sonarFearDistance: 25
