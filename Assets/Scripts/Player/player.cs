@@ -15,7 +15,13 @@ public class player : MonoBehaviour
     [SerializeField] private float groundBraking = 45f;
     [SerializeField] private float airAcceleration = 8f;
     private bool sprintHeld;
-    
+    [Header("Swimming")]
+    [SerializeField] private float swimSpeed = 5f;
+    [SerializeField] private float swimAcceleration = 10f;
+
+
+
+
     [Header("Camera Settings")]
     [SerializeField] private GameObject playerCamera;
     [SerializeField] private GameObject SubOverlayCamera;
@@ -41,7 +47,7 @@ public class player : MonoBehaviour
 
     [Header("Other Settings")]
 
-    private Vector3 camTest;
+    private Vector3 swimDirection;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Transform groundCheckPos;
     #endregion
@@ -159,13 +165,25 @@ public class player : MonoBehaviour
             // Apply water physics
             // For example, reduce gravity
             rb.AddForce(Vector3.down * 0.5f);// Reduced gravity force in water 
-            camTest = transform.right * moveInput.x + playerCamera.transform.forward * moveInput.y;
-            rb.AddForce(camTest.normalized * speed, ForceMode.Force);    
+
+            swimDirection = transform.right * moveInput.x + playerCamera.transform.forward * moveInput.y;
+            swimDirection = Vector3.ClampMagnitude(swimDirection, 1f);
+
+            Vector3 targetVelocity = swimDirection.normalized * swimSpeed;
+            Vector3 nextVelocity = Vector3.MoveTowards(
+            rb.linearVelocity, targetVelocity, swimAcceleration * Time.fixedDeltaTime);
+
+            rb.AddForce(nextVelocity - rb.linearVelocity, ForceMode.VelocityChange);
+
+
+
              if (jumpPressed)
             {
                 rb.AddForce(Vector3.up * 2.5f, ForceMode.Force); // Apply upward force for swimming
             }
-           //UnderwaterEffect.SetActive(true);
+
+            
+           
         }
         // normal submarine physics for the player
         if (isInAir)
