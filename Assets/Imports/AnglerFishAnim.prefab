@@ -1118,6 +1118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6708664457264414705}
   - component: {fileID: 2771979010224782840}
+  - component: {fileID: 267904188082527204}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -1216,6 +1217,25 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00011378527, y: 0.21482807, z: 0.06628156}
     m_Extent: {x: 1.9444826, y: 1.8940172, z: 2.697234}
   m_DirtyAABB: 0
+--- !u!205 &267904188082527204
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6006171382521274329}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.7657709, y: -0.1560688, z: -24.881634}
+  m_Size: 5
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1630794972795428178, guid: 5e655b9913d6faf408c32064a8d75493, type: 3}
+  m_Enabled: 1
 --- !u!1 &6273151648306695892
 GameObject:
   m_ObjectHideFlags: 0
