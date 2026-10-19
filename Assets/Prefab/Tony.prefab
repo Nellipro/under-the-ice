@@ -345,6 +345,8 @@ MonoBehaviour:
   groundAcceleration: 35
   groundBraking: 45
   airAcceleration: 8
+  swimSpeed: 5
+  swimAcceleration: 10
   playerCamera: {fileID: 9073648382569994046}
   SubOverlayCamera: {fileID: 4037154543728318433}
   oxygen: 100
@@ -477,7 +479,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 134217728
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

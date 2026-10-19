@@ -118,7 +118,7 @@ Material:
     - _horrow_mode: 0
     - _roundness: 0
     - _tweaking_mode: 0
-    - _wdaf: 0
+    - _wdaf: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
