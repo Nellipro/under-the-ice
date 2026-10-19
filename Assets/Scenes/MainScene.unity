@@ -13672,7 +13672,8 @@ GameObject:
   - component: {fileID: 990593755}
   - component: {fileID: 990593754}
   - component: {fileID: 990593753}
-  m_Layer: 27
+  - component: {fileID: 990593756}
+  m_Layer: 0
   m_Name: OutsideSodium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13772,6 +13773,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990593751}
   m_Mesh: {fileID: -7960052695697129225, guid: eda6189f73f68604fa1d054f357bfe1c, type: 3}
+--- !u!114 &990593756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990593751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4540f9eb3e78b8941a1e09a333ff9d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SodiumPickupInteractable
+  sodiumManager: {fileID: 2061793536}
 --- !u!1 &992065283
 GameObject:
   m_ObjectHideFlags: 0
