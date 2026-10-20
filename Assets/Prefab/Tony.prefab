@@ -152,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 509159456735906059}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -345,6 +345,9 @@ MonoBehaviour:
   groundAcceleration: 35
   groundBraking: 45
   airAcceleration: 8
+  JumpDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
   swimSpeed: 5
   swimAcceleration: 10
   playerCamera: {fileID: 9073648382569994046}

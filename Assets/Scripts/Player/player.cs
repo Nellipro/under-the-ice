@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class player : MonoBehaviour
 {
     #region variables
@@ -14,6 +15,7 @@ public class player : MonoBehaviour
     [SerializeField] private float groundAcceleration = 35f;
     [SerializeField] private float groundBraking = 45f;
     [SerializeField] private float airAcceleration = 8f;
+    [SerializeField] private LayerMask JumpDetectionMask;
     private bool sprintHeld;
     [Header("Swimming")]
     [SerializeField] private float swimSpeed = 5f;
@@ -63,7 +65,7 @@ public class player : MonoBehaviour
                 speed = 35.0f; // Increase speed when sprinting
             } else if (!isInAir)
             {
-                speed = 15.0f; // Increase speed when sprinting
+                swimSpeed = swimSpeed * 2; // Increase speed when sprinting
             }
         }
         else if (!value.isPressed)
@@ -73,7 +75,7 @@ public class player : MonoBehaviour
                 speed = 20.0f; // Reset speed when not sprinting
             } else if (!isInAir)
             {
-                speed = 9.0f; // Reset speed when not sprinting
+                swimSpeed = 5; // Reset speed when not sprinting
             } 
         }
     }
@@ -119,6 +121,9 @@ public class player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Invoke(nameof(FixPlayer), 10f);
+        // Verandert het masker naar: "Raak alles, BEHALVE de laag die Player heet"
+        JumpDetectionMask = ~LayerMask.GetMask("Player");
+
     }
     void FixPlayer()
     {
@@ -143,9 +148,11 @@ public class player : MonoBehaviour
     #endregion
     void Update()
     {
-        freezeCam = playerUI.ShowUI;
         //raycast beneath players feet to check if they are in air or not
-        jumpIsAllowed = Physics.Raycast(groundCheckPos.position, Vector3.down, 0.25f);
+        RaycastHit Hit;
+        jumpIsAllowed = Physics.SphereCast(groundCheckPos.position, 0.5f, Vector3.down, out Hit, 1.15f, JumpDetectionMask);
+        Debug.DrawRay(groundCheckPos.position, Vector3.down * 1.15f, jumpIsAllowed ? Color.green : Color.red);
+        freezeCam = playerUI.ShowUI;
         if (isInAir)
         {
             SubOverlayCamera.SetActive(true);
@@ -223,20 +230,12 @@ public class player : MonoBehaviour
             if (grounded || hasInput)
             {
                 float acceleration = grounded
-                    ? (hasInput ? groundAcceleration : groundBraking)
-                    : airAcceleration;
+                    ? (hasInput ? groundAcceleration : groundBraking) : airAcceleration;
 
-                Vector3 nextVelocity = Vector3.MoveTowards(
-                    horizontalVelocity,
-                    targetVelocity,
-                    acceleration * Time.fixedDeltaTime
-                );
+                Vector3 nextVelocity = Vector3.MoveTowards(horizontalVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
 
                 // Adjust horizontal motion without changing jump/fall velocity.
-                rb.AddForce(
-                    nextVelocity - horizontalVelocity,
-                    ForceMode.VelocityChange
-                );
+                rb.AddForce(nextVelocity - horizontalVelocity, ForceMode.VelocityChange);
             }
         }
         if(!freezeCam) //camera system

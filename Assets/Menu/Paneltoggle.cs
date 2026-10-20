@@ -12,7 +12,7 @@ public class Paneltoggle : MonoBehaviour
     private const string KeyPrefix = "Audio.Volume.";
     public void Start()
     {
-        Time.timeScale = 1f;
+    
         load();
     }
     public void OpenPanel()
