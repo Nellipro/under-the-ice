@@ -3,7 +3,6 @@ using UnityEngine.EventSystems;
 
 public class UserInterfaceMainMenu : MonoBehaviour
 {
-    private GameObject previousSelection;
     public void PlayGame()
     {
         SceneFadeLoader.LoadScene(1);

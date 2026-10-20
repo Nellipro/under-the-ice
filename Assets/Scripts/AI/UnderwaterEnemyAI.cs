@@ -55,7 +55,7 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
     [SerializeField] private EnemyState currentState;
     [SerializeField] private bool drawCurrentPath = true;
 
-    private Rigidbody body;
+    private Rigidbody rb;
     private SonarStimulus sonarTarget;
     private readonly List<Vector3> currentPath = new();
     private int pathIndex;
@@ -68,13 +68,13 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        body = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         if (arrivalCollider == null)
         {
             arrivalCollider = GetComponentInChildren<Collider>();
         }
 
-        body.useGravity = false;
+        rb.useGravity = false;
         SetState(EnemyState.Patrol);
     }
 
@@ -125,20 +125,20 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
             return;
         }
 
-        Vector3 toWaypoint = currentPath[pathIndex] - body.position;
+        Vector3 toWaypoint = currentPath[pathIndex] - rb.position;
 
         Vector3 direction = toWaypoint.normalized;
         Vector3 desiredVelocity = direction * swimSpeed;
-        body.linearVelocity = Vector3.MoveTowards(
-            body.linearVelocity,
+        rb.linearVelocity = Vector3.MoveTowards(
+            rb.linearVelocity,
             desiredVelocity,
             acceleration * Time.fixedDeltaTime);
 
         if (direction.sqrMagnitude > 0.001f)
         {
             Quaternion desiredRotation = Quaternion.LookRotation(direction, Vector3.up);
-            body.MoveRotation(Quaternion.Slerp(
-                body.rotation,
+            rb.MoveRotation(Quaternion.Slerp(
+                rb.rotation,
                 desiredRotation,
                 turnSpeed * Time.fixedDeltaTime));
         }
@@ -342,8 +342,8 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
 
     private void SlowDown()
     {
-        body.linearVelocity = Vector3.MoveTowards(
-            body.linearVelocity,
+        rb.linearVelocity = Vector3.MoveTowards(
+            rb.linearVelocity,
             Vector3.zero,
             acceleration * Time.fixedDeltaTime);
     }
@@ -352,7 +352,7 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
     {
         if (arrivalCollider == null || !arrivalCollider.enabled)
         {
-            return Vector3.Distance(body.position, waypoint) <= waypointTolerance;
+            return Vector3.Distance(rb.position, waypoint) <= waypointTolerance;
         }
 
         // ClosestPoint equals the waypoint while it is inside the collider. The
