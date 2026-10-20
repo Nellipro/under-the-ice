@@ -3,7 +3,7 @@ using UnityEngine;
 public class SwitchRotateSystem : MonoBehaviour, IInteractible
 {
     Transform leverHandle;
-    public Vector3 rotationAxis = Vector3.right;
+    public Vector3 rotationAxis;
     public float upAngle = -35f;
     public float downAngle = 35f;
     public float moveSpeed = 8f;
@@ -73,13 +73,28 @@ public class SwitchRotateSystem : MonoBehaviour, IInteractible
 
     public void Pull(Vector3 rayHitPoint)
     {
+        if (rotationAxis.sqrMagnitude < 0.001f)
+        {
+            Debug.LogError($"{nameof(SwitchRotateSystem)} on {name} needs a non-zero rotation axis.");
+            return;
+        }
+
+        Vector3 axis = rotationAxis.normalized;
         Vector3 localHitPoint = leverHandle.InverseTransformPoint(rayHitPoint);
-        Vector3 localDirection = Vector3.ProjectOnPlane(localHitPoint, rotationAxis.normalized);
+        Vector3 localDirection = Vector3.ProjectOnPlane(localHitPoint, axis);
 
         if (localDirection.sqrMagnitude > 0.001f)
         {
+            localDirection.Normalize();
+
+            Vector3 referenceDirection = Vector3.ProjectOnPlane(Vector3.forward, axis);
+            if (referenceDirection.sqrMagnitude < 0.001f)
+            {
+                referenceDirection = Vector3.ProjectOnPlane(Vector3.right, axis);
+            }
+
             targetAngle = Mathf.Clamp(
-                Vector3.SignedAngle(Vector3.forward, localDirection, rotationAxis.normalized) + rayAngleOffset,
+                Vector3.SignedAngle(referenceDirection, localDirection, axis) + rayAngleOffset,
                 Mathf.Min(upAngle, downAngle),
                 Mathf.Max(upAngle, downAngle));
         }
