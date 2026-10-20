@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 4db9940ec8a767e45b691e1a2b41c877, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 94af806b779971f44b643868961a21fe, type: 2}
+      objectReference: {fileID: 2100000, guid: e0516eb78e2a9104588d96bcdc4dad25, type: 2}
     - target: {fileID: 919132149155446097, guid: 4db9940ec8a767e45b691e1a2b41c877, type: 3}
       propertyPath: m_Name
       value: Wrench

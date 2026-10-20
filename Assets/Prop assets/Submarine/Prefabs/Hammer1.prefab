@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e919a92abb059ee4a86c1b6f114df567, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: f7e23eda1727e3447bddedaadd253b22, type: 2}
+      objectReference: {fileID: 2100000, guid: 1e41dd0d24b91ca45880bb18756d719d, type: 2}
     - target: {fileID: 919132149155446097, guid: e919a92abb059ee4a86c1b6f114df567, type: 3}
       propertyPath: m_Name
       value: Hammer1
