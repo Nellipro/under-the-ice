@@ -61,6 +61,7 @@ public class fihh : MonoBehaviour
         if (currentPath.Count == 0 || pathIndex >= currentPath.Count)
         {
             SlowDown();
+            PickNewDestination();
             return;
         }
 
@@ -108,10 +109,6 @@ public class fihh : MonoBehaviour
 
         if (waypointNetwork == null)
         {
-            Debug.LogWarning(
-                $"{name} has no Waypoint Network assigned.",
-                this);
-
             currentPath.Clear();
             return;
         }
