@@ -24,8 +24,18 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
     [Header("Role")]
     [SerializeField] private EnemyBehaviour behaviour;
     [SerializeField] private WaypointNetwork3D waypointNetwork;
-    [Tooltip("Assign the player's root transform. The current player prefab is not tagged Player.")]
+    [Header("Cats new variables")]
+    [SerializeField] private Transform enemyTarget;
+    [Tooltip("Player")]
     [SerializeField] private Transform playerTarget;
+
+    [Tooltip("assign Submarines enemy target here.")]
+    [SerializeField] private Transform submarineTarget;
+    [Tooltip("assign the object holding Player.CS here (in our case that would be tony)")]
+    [SerializeField] private player playerScript;
+    [SerializeField] private bool playerIsInSub;
+    [SerializeField] private UnityEvent onSubmarineAttack;
+
 
     [Header("Movement")]
     [SerializeField, Min(0.1f)] private float swimSpeed = 6f;
@@ -80,6 +90,12 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
 
     private void Update()
     {
+        playerIsInSub = playerScript.IsInAir;
+        if (playerIsInSub)
+        {enemyTarget = submarineTarget;}
+        else if (!playerIsInSub)
+        {enemyTarget = playerTarget;}
+
         EvaluateBehaviour();
 
         if (IsAttackState(currentState))
@@ -167,13 +183,13 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
         }
 
         sonarTarget = null;
-        if (playerTarget == null || Vector3.Distance(transform.position, playerTarget.position) > playerDetectionDistance)
+        if (enemyTarget == null || Vector3.Distance(transform.position, enemyTarget.position) > playerDetectionDistance)
         {
             SetState(EnemyState.Patrol);
             return;
         }
 
-        SetState(Vector3.Distance(transform.position, playerTarget.position) <= playerAttackDistance
+        SetState(Vector3.Distance(transform.position, enemyTarget.position) <= playerAttackDistance
             ? EnemyState.AttackPlayer
             : EnemyState.ChasePlayer);
     }
@@ -246,12 +262,12 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
                 break;
 
             case EnemyState.ChasePlayer:
-                if (playerTarget == null)
+                if (enemyTarget == null)
                 {
                     return;
                 }
 
-                newPath = FindPath(playerTarget.position);
+                newPath = FindPath(enemyTarget.position);
                 break;
 
             case EnemyState.ChaseSonar:
@@ -315,7 +331,10 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
 
         if (currentState == EnemyState.AttackPlayer)
         {
-            onPlayerAttack.Invoke();
+            if (!playerIsInSub)
+            {onPlayerAttack.Invoke();}
+            else if (playerIsInSub)
+            {onSubmarineAttack.Invoke();}
         }
         else if (currentState == EnemyState.AttackSonar && sonarTarget != null)
         {
@@ -326,8 +345,8 @@ public sealed class UnderwaterEnemyAI : MonoBehaviour
 
     private void FaceAttackTarget()
     {
-        Vector3 target = currentState == EnemyState.AttackPlayer && playerTarget != null
-            ? playerTarget.position
+        Vector3 target = currentState == EnemyState.AttackPlayer && enemyTarget != null
+            ? enemyTarget.position
             : sonarTarget != null ? sonarTarget.AttackPosition : transform.position;
 
         Vector3 direction = (target - transform.position).normalized;

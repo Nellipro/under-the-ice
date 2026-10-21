@@ -38,6 +38,7 @@ public class player : MonoBehaviour
    
     [Header("Environment State")]
     [SerializeField] private bool isInAir = true;
+    public bool IsInAir => isInAir;
     bool freezeCam = false;
 
     [Header("Input State")]
