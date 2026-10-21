@@ -8,7 +8,8 @@ public class SwitchRotateSystem : MonoBehaviour, IInteractible
     public float downAngle = 35f;
     public float moveSpeed = 8f;
     public float rayAngleOffset;
-    public float lockValue;
+    public float lockValueMax;
+    public float lockValueMin;
 
     private Quaternion startRotation;
     private float targetAngle;
@@ -34,7 +35,7 @@ public class SwitchRotateSystem : MonoBehaviour, IInteractible
         startRotation = leverHandle.localRotation;
         targetAngle = upAngle;
         currentAngle = upAngle;
-        value = 0f;
+        value = -1f;
         isBeingHeld = false;
     }
 
@@ -43,18 +44,22 @@ public class SwitchRotateSystem : MonoBehaviour, IInteractible
         currentAngle = Mathf.Lerp(currentAngle, targetAngle, moveSpeed * Time.deltaTime);
         Quaternion targetRotation = startRotation * Quaternion.AngleAxis(targetAngle, rotationAxis.normalized);
         leverHandle.localRotation = Quaternion.Slerp(leverHandle.localRotation, targetRotation, moveSpeed * Time.deltaTime);
-        value = Mathf.InverseLerp(upAngle, downAngle, currentAngle);
+        float normalizedValue = Mathf.InverseLerp(upAngle, downAngle, currentAngle);
+        value = Mathf.Lerp(-1f, 1f, normalizedValue);
 
-        if (value <= lockValue & !isBeingHeld)
+        if (value <= lockValueMax && !isBeingHeld)
         {
-            value = Mathf.Clamp01(0);
+            if (value >= lockValueMin)
+            {
+                value = 0f;
 
-            currentAngle = Mathf.Lerp(upAngle, downAngle, value);
-            targetAngle = currentAngle;
-            targetRotation = startRotation * Quaternion.AngleAxis(targetAngle, rotationAxis.normalized);
+                currentAngle = Mathf.Lerp(upAngle, downAngle, 0.5f);
+                targetAngle = currentAngle;
+                targetRotation = startRotation * Quaternion.AngleAxis(targetAngle, rotationAxis.normalized);
 
-            leverHandle.localRotation = targetRotation;
-            isDown = value >= 0.5f;
+                leverHandle.localRotation = targetRotation;
+                isDown = false;               
+            }
         }
     }
 
