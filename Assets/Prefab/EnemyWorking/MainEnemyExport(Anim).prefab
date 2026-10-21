@@ -1189,7 +1189,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.26855543
+  - screenRelativeHeight: 0.09692214
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1630794972795428178, guid: 7981af66e0883144e81af4913e46132b, type: 3}
@@ -2327,7 +2327,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnderwaterEnemyAI
   behaviour: 0
   waypointNetwork: {fileID: 0}
+  enemyTarget: {fileID: 0}
   playerTarget: {fileID: 0}
+  submarineTarget: {fileID: 0}
+  playerScript: {fileID: 0}
+  playerIsInSub: 0
+  onSubmarineAttack:
+    m_PersistentCalls:
+      m_Calls: []
   swimSpeed: 30
   acceleration: 14
   turnSpeed: 1

@@ -129,16 +129,13 @@ public class fihh : MonoBehaviour
         // Fallback if no collider was assigned or found.
         if (arrivalCollider == null || !arrivalCollider.enabled)
         {
-            return Vector3.Distance(rb.position, waypoint)
-                   <= waypointTolerance;
+            return Vector3.Distance(rb.position, waypoint) <= waypointTolerance;
         }
 
         // If the waypoint is inside the collider, ClosestPoint returns
         // the waypoint itself. Tolerance expands this arrival area slightly.
         Vector3 closestPoint = arrivalCollider.ClosestPoint(waypoint);
-
-        return (closestPoint - waypoint).sqrMagnitude
-               <= waypointTolerance * waypointTolerance;
+        return (closestPoint - waypoint).sqrMagnitude <= waypointTolerance * waypointTolerance;
     }
 
     private void SlowDown()

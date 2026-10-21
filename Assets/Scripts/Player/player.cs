@@ -253,7 +253,7 @@ public class player : MonoBehaviour
         #endregion
     }
     #region Oxygen
-    void ChangeOxygen(float amount)//void for changing oxygen level without going above max or below 0.
+    public void ChangeOxygen(float amount)//void for changing oxygen level without going above max or below 0.
     {
         oxygen = Mathf.Clamp(oxygen + amount, 0f, maxOxygen);
     }
