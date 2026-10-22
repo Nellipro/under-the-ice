@@ -4172,7 +4172,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4864899998425243108}
-  - component: {fileID: 3377915069146584709}
   - component: {fileID: 6966775211181344581}
   m_Layer: 27
   m_Name: maingamesubmarinefinalversion4
@@ -4222,31 +4221,6 @@ Transform:
   - {fileID: 5629616777494886546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3377915069146584709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2862470916871119792}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a44d8ceae56e9ee45ba5facc4bff0ac8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SubmarineMovement
-  thisShip: {fileID: 0}
-  rb: {fileID: 0}
-  forwardLever: {fileID: 1434229660456427698}
-  backwardLever: {fileID: 5038707911974570582}
-  steeringLever: {fileID: 5958073179260291979}
-  upLever: {fileID: 0}
-  downLever: {fileID: 0}
-  turnSpeed: 1
-  thrustSpeed: 220
-  isActive: 0
-  stabilizationForce: 1000
-  submarineRb: {fileID: 0}
-  playerRb: {fileID: 0}
 --- !u!114 &6966775211181344581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4268,6 +4242,8 @@ MonoBehaviour:
   turnSpeed: 50
   thrustSpeed: 45
   movementDamping: 10
+  collisionPadding: 0.05
+  collisionSkin: 0.08
   isActive: 0
 --- !u!1 &2961735300833606958
 GameObject:
@@ -12823,10 +12799,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 27
       objectReference: {fileID: 0}
-    - target: {fileID: 3842079628816276473, guid: 0b884de205bf87d49bd4d1f06ac783e2, type: 3}
-      propertyPath: submarine
-      value: 
-      objectReference: {fileID: 3377915069146584709}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

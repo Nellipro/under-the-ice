@@ -33,9 +33,9 @@ public class SwitchRotateSystem : MonoBehaviour, IInteractible
         }
 
         startRotation = leverHandle.localRotation;
-        targetAngle = upAngle;
-        currentAngle = upAngle;
-        value = -1f;
+        currentAngle = Mathf.Lerp(upAngle, downAngle, 0.5f);
+        targetAngle = currentAngle;
+        value = 0f;
         isBeingHeld = false;
     }
 

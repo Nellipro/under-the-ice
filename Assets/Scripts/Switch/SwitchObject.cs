@@ -28,7 +28,7 @@ public class SwitchObject : MonoBehaviour
     private Transform target;
 
     [Header("for Engine")]
-    public SubmarineMovement submarine;
+    public SubmarineMovementTransform submarine;
 
     [Header("for BlastsShield")]
     public float rotationSpeed = 90f;
