@@ -586,6 +586,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2006808855988846456}
+  - component: {fileID: 8275977012868464231}
+  - component: {fileID: 7281939049412709146}
+  - component: {fileID: 727661331995231065}
   m_Layer: 0
   m_Name: WhaleSharkAnim (1)
   m_TagString: Untagged
@@ -611,6 +614,76 @@ Transform:
   - {fileID: 4632038914933487085}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8275977012868464231
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4658232325446090514}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b34e7619292ba4b45ba1459f9a5771cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7281939049412709146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4658232325446090514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d103bfb8cc9d7bd479aa757ee87aa2ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fihh
+  waypointNetwork: {fileID: 0}
+  minTravelTime: 11.1
+  maxTravelTime: 99.8
+  waypointTolerance: 1
+  swimSpeed: 8.11
+  acceleration: 2.06
+  turnSpeed: 1.59
+  arrivalCollider: {fileID: 8404236013892269718}
+  drawPath: 1
+--- !u!54 &727661331995231065
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4658232325446090514}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 134217792
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4858584748871185489
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +885,7 @@ GameObject:
   - component: {fileID: 7701750261264165038}
   - component: {fileID: 6337302819238694490}
   - component: {fileID: 8677278826587964992}
+  - component: {fileID: 8404236013892269718}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -932,15 +1006,38 @@ LODGroup:
   serializedVersion: 2
   m_LocalReferencePoint: {x: -7.634622, y: 0.28686476, z: -1.6103773}
   m_Size: 4
-  m_FadeMode: 0
+  m_FadeMode: 1
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.15505171
+  - screenRelativeHeight: 0.056249835
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1630794972795428178, guid: 62a01e52f96d7aa4eb306e7344d0fd01, type: 3}
   m_Enabled: 1
+--- !u!136 &8404236013892269718
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476812477791151535}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 2048
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 134217792
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.5
+  m_Height: 16
+  m_Direction: 2
+  m_Center: {x: -0.7561828, y: 0, z: 1.430512}
 --- !u!1 &5649588277264340330
 GameObject:
   m_ObjectHideFlags: 0

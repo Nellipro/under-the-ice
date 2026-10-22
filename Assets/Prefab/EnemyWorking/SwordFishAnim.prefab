@@ -311,9 +311,9 @@ MonoBehaviour:
   minTravelTime: 30
   maxTravelTime: 120
   waypointTolerance: 1
-  swimSpeed: 300
-  acceleration: 50
-  turnSpeed: 30
+  swimSpeed: 15
+  acceleration: 20
+  turnSpeed: 2
   arrivalCollider: {fileID: 0}
   drawPath: 1
 --- !u!54 &1761750051618062014
@@ -749,7 +749,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.3
+  - screenRelativeHeight: 0.059799362
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1630794972795428178, guid: 4bf8d5ef74d09f1448d6028c53d6627e, type: 3}

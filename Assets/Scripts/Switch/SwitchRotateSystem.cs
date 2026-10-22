@@ -33,9 +33,9 @@ public class SwitchRotateSystem : MonoBehaviour, IInteractible
         }
 
         startRotation = leverHandle.localRotation;
-        currentAngle = Mathf.Lerp(upAngle, downAngle, 0.5f);
+        currentAngle = Mathf.Lerp(upAngle, downAngle, -1f);
         targetAngle = currentAngle;
-        value = 0f;
+        value = -1f;
         isBeingHeld = false;
     }
 
@@ -51,9 +51,9 @@ public class SwitchRotateSystem : MonoBehaviour, IInteractible
         {
             if (value >= lockValueMin)
             {
-                value = 0f;
+                value = -1f;
 
-                currentAngle = Mathf.Lerp(upAngle, downAngle, 0.5f);
+                currentAngle = Mathf.Lerp(upAngle, downAngle, -1f);
                 targetAngle = currentAngle;
                 targetRotation = startRotation * Quaternion.AngleAxis(targetAngle, rotationAxis.normalized);
 

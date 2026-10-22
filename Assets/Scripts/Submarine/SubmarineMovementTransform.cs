@@ -12,7 +12,7 @@ public class SubmarineMovementTransform : MonoBehaviour
     [Header("Controls")]
     public SwitchPullSystem forwardLever;
     public SwitchPullSystem backwardLever;
-    public SwitchRotateSystem steeringLever;
+    public SwitchSteerSystem steeringLever;
     public SwitchRotateSystem upLever;
     public SwitchRotateSystem downLever;
 
@@ -20,8 +20,11 @@ public class SubmarineMovementTransform : MonoBehaviour
     [Tooltip("Turn rate in degrees per second at full lever input.")]
     public float turnSpeed = 50f;
 
-    [Tooltip("Acceleration in world units per second squared at full thrust.")]
-    public float thrustSpeed = 45f;
+    [Tooltip("Maximum forward and reverse acceleration in world units per second squared.")]
+    public float maxForwardThrust = 45f;
+
+    [Tooltip("Maximum upward and downward acceleration in world units per second squared.")]
+    public float maxVerticalThrust = 45f;
 
     [Tooltip("How quickly the submarine slows when thrust is released, in inverse seconds.")]
     public float movementDamping = 10f;
@@ -52,11 +55,11 @@ public class SubmarineMovementTransform : MonoBehaviour
         {
             // The existing switch may still toggle the legacy component's flag.
             // Keep its FixedUpdate from fighting this controller and read that flag below.
-            if (steeringLever == null) steeringLever = legacyMovement.steeringLever;
-            if (forwardLever == null) forwardLever = legacyMovement.forwardLever;
-            if (backwardLever == null) backwardLever = legacyMovement.backwardLever;
-            if (upLever == null) upLever = legacyMovement.upLever;
-            if (downLever == null) downLever = legacyMovement.downLever;
+            //
+            // if (forwardLever == null) forwardLever = legacyMovement.forwardLever;
+            // if (backwardLever == null) backwardLever = legacyMovement.backwardLever;
+            // if (upLever == null) upLever = legacyMovement.upLever;
+            // if (downLever == null) downLever = legacyMovement.downLever;
             legacyMovement.enabled = false;
         }
 
@@ -96,7 +99,7 @@ public class SubmarineMovementTransform : MonoBehaviour
 
         if (EngineIsActive())
         {
-            float yawDelta = GetValue(steeringLever) * turnSpeed * deltaTime;
+            float yawDelta = GetValueSteer(steeringLever) * turnSpeed * deltaTime;
             if (Mathf.Abs(yawDelta) > Mathf.Epsilon)
             {
                 Quaternion proposedRotation = oldRotation * Quaternion.Euler(0f, yawDelta, 0f);
@@ -130,10 +133,10 @@ public class SubmarineMovementTransform : MonoBehaviour
         float forwardInput = GetValue(forwardLever) - GetValue(backwardLever);
         float verticalInput = GetValue(upLever) - GetValue(downLever);
 
-        Vector3 acceleration = shipRotation * Vector3.forward * forwardInput
-                             + shipRotation * Vector3.up * verticalInput;
+        Vector3 acceleration = shipRotation * Vector3.forward * forwardInput * maxForwardThrust
+                             + shipRotation * Vector3.up * verticalInput * maxVerticalThrust;
 
-        velocity += acceleration * thrustSpeed * deltaTime;
+        velocity += acceleration * deltaTime;
     }
 
     private Vector3 SweepTranslation(Vector3 startPosition, Quaternion orientation, Vector3 displacement)
@@ -292,6 +295,10 @@ public class SubmarineMovementTransform : MonoBehaviour
     }
 
     private static float GetValue(SwitchRotateSystem lever)
+    {
+        return lever != null ? lever.value : 0f;
+    }
+    private static float GetValueSteer(SwitchSteerSystem lever)
     {
         return lever != null ? lever.value : 0f;
     }
