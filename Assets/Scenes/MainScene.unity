@@ -278343,11 +278343,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5958073179260291979, guid: b50a41871ca01534daf3b6de742f4800, type: 3}
       propertyPath: lockValueMax
-      value: 0.55
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5958073179260291979, guid: b50a41871ca01534daf3b6de742f4800, type: 3}
       propertyPath: lockValueMin
-      value: 0.45
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966775211181344581, guid: b50a41871ca01534daf3b6de742f4800, type: 3}
+      propertyPath: turnSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966775211181344581, guid: b50a41871ca01534daf3b6de742f4800, type: 3}
+      propertyPath: thrustSpeed
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6981534151995808150, guid: b50a41871ca01534daf3b6de742f4800, type: 3}
       propertyPath: m_Layer
