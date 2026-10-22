@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements.Experimental;
 
 public class SubmarineMovement : MonoBehaviour
 {
@@ -8,8 +7,7 @@ public class SubmarineMovement : MonoBehaviour
     public Rigidbody rb;
     public SwitchPullSystem forwardLever;
     public SwitchPullSystem backwardLever;
-    public SwitchRotateSystem leftLever;
-    public SwitchRotateSystem rightLever;
+    public SwitchRotateSystem steeringLever;
     public SwitchRotateSystem upLever;
     public SwitchRotateSystem downLever;
 
@@ -57,8 +55,7 @@ public class SubmarineMovement : MonoBehaviour
 
     void Turn()
     {
-        float Y = rightLever.value + -leftLever.value;
-        yaw = (turnSpeed * Y);
+        yaw = turnSpeed * steeringLever.value;
         thisShip.Rotate(pitch, yaw, roll);
     }
 

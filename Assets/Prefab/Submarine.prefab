@@ -486,8 +486,7 @@ MonoBehaviour:
   rb: {fileID: 1257547902577694024}
   forwardLever: {fileID: 4369712074416519065}
   backwardLever: {fileID: 5244930225405212963}
-  leftLever: {fileID: 3988481653147949494}
-  rightLever: {fileID: 3736841267030653340}
+  steeringLever: {fileID: 3736841267030653340}
   upLever: {fileID: 4712923609454431711}
   downLever: {fileID: 5152925292615043627}
   turnSpeed: 1
