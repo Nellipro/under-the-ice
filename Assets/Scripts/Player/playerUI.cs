@@ -63,4 +63,8 @@ public class playerUI : MonoBehaviour
         Cursor.visible = true;
         EscapeMenu.SetActive(false);
     }
+    public void CloseEscapeMenu()
+    {
+        showEscapeMenu = false;
+    }
 }

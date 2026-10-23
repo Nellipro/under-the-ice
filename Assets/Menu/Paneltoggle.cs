@@ -24,7 +24,7 @@ public class Paneltoggle : MonoBehaviour
     {
         panelAnimator.ResetTrigger(openTrigger);
         panelAnimator.SetTrigger(defaultTrigger);
-        Invoke("PanelOff", 1.01f); // Delay the deactivation to allow the animation to complete
+        Invoke("PanelOff", 1f); // Delay the deactivation to allow the animation to complete
     }
     public void PanelOn()
     {
