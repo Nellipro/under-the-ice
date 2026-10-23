@@ -4192,11 +4192,12 @@ MonoBehaviour:
   thisShip: {fileID: 4864899998425243108}
   forwardLever: {fileID: 1434229660456427698}
   backwardLever: {fileID: 5038707911974570582}
-  steeringLever: {fileID: 5958073179260291979}
+  steeringLever: {fileID: 0}
   upLever: {fileID: 5468587509021988461}
   downLever: {fileID: 79350572344896117}
   turnSpeed: 50
-  thrustSpeed: 45
+  maxForwardThrust: 45
+  maxVerticalThrust: 45
   movementDamping: 10
   collisionPadding: 0.05
   collisionSkin: 0.08
@@ -15141,7 +15142,8 @@ PrefabInstance:
       propertyPath: m_ExcludeLayers.m_Bits
       value: 1074003968
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4921618745552294381, guid: 729a5bad019535d4e910796bf17c9969, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
