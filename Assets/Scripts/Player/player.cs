@@ -174,7 +174,7 @@ public class player : MonoBehaviour
             
             // Apply water physics
             // For example, reduce gravity
-            rb.AddForce(Vector3.down * 22f);// Reduced gravity force in water 
+            rb.AddForce(Vector3.down * 10f);// Reduced gravity force in water 
 
             swimDirection = transform.right * moveInput.x + playerCamera.transform.forward * moveInput.y;
             swimDirection = Vector3.ClampMagnitude(swimDirection, 1f);
@@ -189,11 +189,11 @@ public class player : MonoBehaviour
 
              if (jumpPressed)
             {
-                rb.AddForce(Vector3.up * 70f, ForceMode.Force); // Apply upward force for swimming
+                rb.AddForce(Vector3.up * 30f, ForceMode.Force); // Apply upward force for swimming
             }
             if (crouchPressed)
             {
-                rb.AddForce(Vector3.down * 60f, ForceMode.Force); // Apply downward force for swimming
+                rb.AddForce(Vector3.down * 30f, ForceMode.Force); // Apply downward force for swimming
             }
             
            
